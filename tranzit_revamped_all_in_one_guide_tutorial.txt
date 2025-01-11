@@ -1,0 +1,156 @@
+Tranzit Revamped 2024 by Ultimateman.
+
+MISCANSELLOUS:
+
+//AVOGADRO LOOKING ZOMBIES SECRET
+Knife the electric box located on the power station's cat walk to turn zombies into avogadro models! Knife the electric box again to turn zombies back into normal.
+
+//FREE RAY GUN MK2 SECRET FOR ONE OF THE PLAYERS IN THE GAME
+You can also get a free ray gun mk2 by interacting with the axe ( located next to the cabin in the woods )
+
+
+//CUSTOM WEAPON WALL BUYS
+RPD wall buy at cabin forest
+HAMR wallbuy at power station's car
+Barret wallbuy on cornfield's car
+SMR1216 wallbuy on nacht
+SMR1216 wallbuy on shortcut to town
+HAMR wallbuy on town
+Barret wallbuy on bus depo
+
+//BULLET TYPES
+There are 3 different bullet type upgrades located inside of the safe house.
+
+( Galaxio Beamz ) 	cost: 30k and you shoot ray gun mk2 lasers from your weapon every time you press "shoot".
+( Ala - Hooppin ) 	cost: 15k and you shoot ray gun ammo from your weapon every time you press "shoot".
+( Martyr's Explosives ) cost: 7.5k and you shoot mustang and sally ammo from your weapon. This specific bullet upgrade only works on sniper rifles.
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+SIDEQUESTS:
+
+
+#Boots Of Fire
+These allow you to travel on lava without taking damage.
+
+Step 1:	Collect 7 Different Boot Pieces Around the map ( orange orbs )
+Step 2: Do 3 different summoning locations ( zombie souls ) at Nacht, Town & Diner Roof.
+	There will be a silver orb hovering on the location once you get near one.
+Step 3: Collect your Fire Boots from Safe House.
+
+
+
+
+
+#Nades Of Fire
+These nades will allow you to have lasers shooting from the sky at zombies when you throw your grenade.
+
+Step 1: Nade 5 different nade locations around map:
+	1st: behind bus depo
+	2nd: farm on the right side of lava pit
+	3rd: in the middle of power station's warehouse
+	4th: behind the zombie barrier at the end of the road on town ( next to bowl alley )
+	5th: on the lava creeck across the bridge
+
+Step 2: You have to collect souls with the nades, try to get 2 - 4 kills with the grenade, it will play some fxs while this step is active.
+
+Step 3: Once you unlock the grenades, Dr.Schruder will notify you. Now you can throw laser grenades.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+SAFE HOUSE QUESTS:
+
+#Side Entrance Blocker
+
+This blocks the side entrance to the safe house.
+This barrier has infinite health.
+This barrier can be found from one of the 7 "searchable crates" scattered around the map.
+Once you've found it from an container, go to safe house and build the side entrance on the table.
+
+
+#Main Entrance Blocker
+
+This blocks the main entrance to the safe house.
+This barrier has health meaning that zombies can damage it.
+If zombies do enough damage, you need to go find repair pieces around the map to rebuild the main blocker.
+This main entrance blocker also has an "air locking door" system meaning that when you are close to it, the doors will open and when you are away from it, the doors will close.
+
+You'll need to find 2 different fences that are electrified.
+These fences are spawned around the map somewhere.
+Once you find both fences, bring them to the safe house & you can build the main entrance blocker.
+
+If the door breaks, you can find 3 more same fences around the map and go back to safe house and repair the door on the table.
+
+
+#Upstair Window Fire Trap
+
+This trap makes zombies burn that come from the upstair window of barn.
+Collect the gasoline from diner.
+Take the gasoline to the workbench thats located upstairs of safe house.
+Next youll need to locate fire crackers.
+These can spawn under ground at following locations and there will be a text on the screen saying "Dig Up Fire Crackers" if you're on top of the right location.
+The locations are:
+Behind the cabin in the woods.
+Next to the jump down from power station to outside. ( between the brick wall and outside rubble / fence )
+Next to farm's green house small lava crack on the ground.
+On the grass next to the big lava area after town before bridge.
+Tunnels at big pillar next to the stairs from m16 & "Back in time Portal Step" location.
+
+Once you find the crackers take them to the workbench at safe house and build the fire trap.
+Fire trap has infinite health and is active till the end of game.
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+MAIN EASTER EGG QUEST:
+
+Turn on the power
+Knife the green house door at bus depot
+Build Navcard table
+Interact with the built table
+Build Turbine
+Power All The Lamps With Turbine
+Go To Power Station where the computer sparks
+Interact with the panel on the wall
+Survive power surge
+Automatic rift ride
+Meteors have spawned at town, shoot them with jetgun till they fly
+Do zombie souls on meteors located at cabin, diner & cornfield's "rock"
+Once rocks start flying,
+Meet schruder at navcard table
+Follow Spirit 
+Call spirit back at Nach
+Survive Lockdown
+Go to farm quickly when the poisonous clouds spawn
+Youll need to then go to bus depo
+Pick up the suit case / mixing container
+Stand close to Quick Revive, Speed, Dtap & Jugg machines to spawn in a mixing container.
+You need to shoot the flying bottle till it flies back to the suit case
+Once all locations done
+Go to pack a punch room to drink the potion
+Meet Schruder at Bar
+Guess the right drink till u get wasted
+Survive
+Schruder asks you to teleport back in time, go to tunnels and jump into the portal.
+Interact with the washing machine
+Jump into new portal
+Shoot or nade the glowing thing on the broken floor above bowling alley 
+It flies behind bowling alley, go pick it up
+Go to navcard table
+Power outtage,
+Schruder will spawn at power, town, diner & farm.
+Follow him and interact with the blue orb, survive each back in time lockdown.
+Meet him at navcard for final time.
+Later if you wanna end game, interact with the navcard table one more time... end game will  unlock.
+
+//UNLOCKABLES DURING MAIN QUEST:
+3 different custom unlockable perks during main quest
+Acid Gat & Blunder Gat reward at the end
+Bullet type upgrade costs reduced at the end by half.
+Keep perks forever reward at the end..
+
+
+I hope you enjoy..
