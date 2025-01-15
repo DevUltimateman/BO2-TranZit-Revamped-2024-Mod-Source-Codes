@@ -169,6 +169,7 @@ transmitter_wait_for_navcard()
             
             navtrig sethintstring( "^9[ ^8Transmitter is now sending ^9signals^8 to nearby ^9radiophones ^9]");
             wait 1;
+            PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
             level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Muscle Up ^8Reward Unlocked", "^8Survivors can now run indefinitely without losing stamina.", "^8Survivor's running speed has also been increased.", 6, 0.25 );
             foreach( playa in level.players )
             {

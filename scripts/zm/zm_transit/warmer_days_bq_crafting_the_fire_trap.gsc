@@ -613,6 +613,21 @@ gas_quest_03_find_crackers()
     firecracker_trigger setHintString( "^9[ ^3[{+activate}] ^8to dig up ^3Fire Crackers^8 ^9]");
     firecracker_trigger setCursorHint( "HINT_NOICON") ;
 
+    wait 0.1;
+    inv_mod = spawn( "script_model", firecracker_trigger.origin );
+    inv_mod setmodel( "tag_origin" );
+    inv_mod.angles = ( 0, 0, 0 );
+    wait 0.25;
+    playfxontag( level.myFx[ 75 ], inv_mod, "tag_origin" );
+    wait 0.25;
+    playfxontag( level.myFx[ 75 ], inv_mod, "tag_origin" );
+    wait 0.25;
+    playfxontag( level.myFx[ 34 ], inv_mod, "tag_origin" );
+    wait 0.25;
+    playfxontag( level.myFx[ level.myFx[ 39 ] ], inv_mod, "tag_origin" );
+    wait 0.25;
+
+
     while( true )
     {
         firecracker_trigger waittill( "trigger", surv );
@@ -626,13 +641,13 @@ gas_quest_03_find_crackers()
             if( isalive( surv )) 
             {
                 wait 0.25;
-                level thread animate_fire_pickup();
+                level thread animate_fire_pickup( firecracker_trigger.origin );
                 firecracker_trigger setHintString( "^9[ ^8Found some old ^3Fire Crackers ^9]" );
                 wait 2.5;
                 level notify( "crackers_can_be_put_down" );
                 level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9" + surv.name + " ^8found some old ^9Fire Crackers", "", 6, 1   );
                 firecracker_trigger delete();
-
+                inv_mod delete();
                 break;
             }
         }
@@ -668,6 +683,7 @@ gas_quest_04_place_down_fc()
             level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says(  "^9" + who.name + " ^8finished upgrading ^9Safe House's ^8window entrances.", "Zombies climbing through said windows will be ^9killed^8 by the crafted fire trap.", 8, 1  );
             level.fireplace_trigger sethintstring( "^9[ ^8Fire Trap ^8has been built ^9] " );
             level notify( "start_firetrap_logic" );
+            level thread monitor_zombies();
             wait 1;
             break;
         }
@@ -1008,10 +1024,10 @@ do_everything_for_gas_pickup()
     }
 }
 
-animate_fire_pickup()
+animate_fire_pickup( here )
 {
     level endon( "end_game" );
-    origin = level.gas_fire_pick_location + ( 0, 50, 60 );
+    origin = here + ( 0, 50, 60 );
     nade = spawn( "script_model", origin );
     nade setmodel( level.myModels[ 75 ] );
     nade.angles = (0,0,0);
@@ -1036,6 +1052,7 @@ do_everything_for_gas_placedown()
     
     level waittill( "gas_got_picked" );
     level waittill( "gas_got_picked" );
+    level waittill( "dontgopastthis" );
     //global_gas_quest_trigger_spawner( location, text1, text2, fx1, fx2, notifier )
     level thread global_gas_quest_trigger_spawner( level.gas_pour_location, "Hold ^3[{+activate}] ^8to pour gasoline on the floor.", "Floor is now littered with ^3Gasoline", level.myfx[ 75 ], level.myfx[ 76 ], "littered_floor" );
     level waittill( "littered_floor" ); 
@@ -1099,23 +1116,33 @@ do_everything_for_gas_placedown()
 monitor_zombies()
 {
     level endon( "end_game" );
+    spawn_shitter = spawn( "script_model", level.gas_fireplaces[ 1 ] );
+    spawn_shitter setmodel( "tag_origin" );
+    spawn_shitter.angles = ( 0, 0, 0 );
+    wait 1;
     while( true )
     {
         som = getAIArray( level.zombie_team );
-        for( a = 0; a < level.gas_fireplaces.size; a++ )
-        {
-            for( s = 0; s < som.size; s++ )
-            {
-                if( distance( som[ s ].origin, level.gas_fireplaces[ a ] ) < 150 )
-                {
-                    wait 0.1;
-                    som[ s ] dodamage( som[ s ].health + 50, som[ s ].origin );
-                }
-            }
-            wait 0.1;
-        }
-        wait 2.5;
         
+        //loop kills zombies
+        for( s = 0; s < som.size; s++ )
+        {
+            if( distance( som[ s ].origin, spawn_shitter.origin ) < 150 )
+            {
+                wait 0.1;
+                som[ s ] dodamage( som[ s ].health + 50, som[ s ].origin );
+            }
+        }
+
+        //loop damages players that are close enough
+        for( s = 0; s < level.players.size; s++ )
+        {
+            if( distance( level.players[ s ].origin, spawn_shitter.origin ) < 50 )
+            {
+                level.players[ s ] dodamage( 50, level.players[ s ].origin );
+            }
+        }
+        wait .5;   
     }
 }
 spawn_workbench_to_build_fire_trap_entrance()
@@ -1132,7 +1159,8 @@ spawn_workbench_to_build_fire_trap_entrance()
     build_firetrap_table_clip.angles = (  0, -142.748, 0 );
 
     head_org = ( 7991.02, -5270.24, 304.92 );
-    build_firetrap_table_clip_head = spawn( "script_model", head_org );
+    new_loc_for_s_peep = org + ( 0, 0, 50 );
+    build_firetrap_table_clip_head = spawn( "script_model", new_loc_for_s_peep );
     build_firetrap_table_clip_head setmodel( "tag_origin" );
     build_firetrap_table_clip_head.angles = ( 0, 0, 0 );
 

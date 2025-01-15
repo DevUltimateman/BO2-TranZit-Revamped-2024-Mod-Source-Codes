@@ -108,7 +108,14 @@ raygun_mark_1bullet()
         
         self waittill( "weapon_fired", weap );
         //weap = self getCurrentWeapon();
-        if( weap == "jetgun_zm" ){ wait 0.05; continue;}
+         if( weap == "jetgun_zm" ){ wait 0.05; continue;}
+        if( weap == "turbine_zm" ){ wait 0.05; continue;}
+        if( weap == "equip_turbine_zm" ){ wait 0.05; continue;}
+        if( weap == "equip_electrictrap_zm" ){ wait 0.05; continue;}
+        if( weap == "electrictrap_zm" ){ wait 0.05; continue;}
+        if( weap == "turbine" ){ wait 0.05; continue;}
+        if( weap == "electrictrap" ){ wait 0.05; continue;}
+
         if( weap == "ray_gun_zm" ){ wait 0.05; continue;}
         if( weap == "ray_gun_upgraded_zm" ){ wait 0.05; continue;}
         if( weap == "knife_ballistic_zm" ){ wait 0.05; continue;}
@@ -198,7 +205,7 @@ weapon_mark_1_spawn()
     wait 0.05;
     playfxontag( level._effect[ "screecher_hole" ], spas, "tag_origin" );
     level.bullet_type_upgrade_cost_1 = 15000; //15000
-    trigger thread waittill_price_reduce();
+    trigger thread waittill_price_reduce_mk1();
     player.hasused = false;
     while ( true )
     {
@@ -208,7 +215,8 @@ weapon_mark_1_spawn()
             wait .1;
             if ( player usebuttonpressed() )
             {
-                player.score -= 15000;
+                
+                player.score -= level.bullet_type_upgrade_cost_1;
                 player playsound( "zmb_cha_ching" );
                 player disableWeapons();
                 spas moveto( portal.origin, 0.1, 0, 0 );
@@ -223,19 +231,21 @@ weapon_mark_1_spawn()
                 wait 0.5;
                 gun movez( 180, 1, 0.1, 0.4 );
                 spas movez( -1000, 5, 0, 0 );
-                wait 0.1;
+                wait 5;
             }
 
         }
     }
 }
 
-waittill_price_reduce()
+waittill_price_reduce_mk1()
 {
     level endon( "end_game" );
     level waittill( "alter_prices" );
-    new_value = level.bullet_type_upgrade_cost_1;
-    self setHintString( "^8[ ^9[{+activate}] ^8to upgrade you bullet type to ^2Ala-Hoopin ^8]\n^8Cost: ^9" + new_value );
+    wait 1;
+    level.bullet_type_upgrade_cost_1 = 7500;
+    wait 1;
+    self setHintString( "^8[ ^9[{+activate}] ^8to upgrade your bullet type to ^2Ala-Hoopin ^8]\n^8Cost: ^9" + level.bullet_type_upgrade_cost_1 );
 }
 drawGunInfo()
 {

@@ -676,7 +676,7 @@ keep_track_of_all_on_farm()
     if( level.dev_time ){ iprintln( "SOMEONE AT BASE!!! ^2######################" );}
     level notify( "everyone_at_base" );
     level notify( "delete_checkpoints" );
-
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Call Of Juarez ^8Reward Unlocked", "^8Survivors now pack twice the heat on their magazine.", "^8Survivor's ammo pouche capacity has been increased.", 6, 0.25 );
     setdvar( "player_clipSizeMultiplier", 2.0 ); 
     foreach( playa in level.players )
@@ -912,14 +912,14 @@ do_guide_blockers_dialog()
 {
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says(  "^9Dr. Schruder: ^8" + "Are you guys able to hear me?", "^8" + "What was that?!", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says(  "^9Dr. Schruder: ^8" + "Those toxic clouds seem to be gone for now.", "^8" + "There's only minor mist still present.", 7, 1  );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says(  "^9Dr. Schruder: ^8" + "You should locate the mixing container from ^9Bus Depot^8.", "^8" + "We should craft an potion after that.", 8, 1 );
 
-    wait 8;
+    wait 10;
      PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Long Way A Cross The Town", "^8Seems like it's as safe as it can be on the outside again..", "I should get going.", 6, 0.25 );
 

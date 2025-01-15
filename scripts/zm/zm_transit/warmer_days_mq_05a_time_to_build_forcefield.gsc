@@ -367,6 +367,7 @@ print_middle_when_speeds_alter()
                 wait 1;
             }
             wait 10;
+            PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
             PlaySoundAtPosition("mus_zombie_round_over", level.players[0].origin);
             level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Zombies ^8Have Advanced", "^8Some zombies are now faster than others.", "^8Faster zombies will flash twice before they pursue survivors.", 7, 0.25 );
         }
@@ -379,6 +380,7 @@ print_middle_when_speeds_alter()
                 wait 1;
             }
             wait 10;
+            PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
             PlaySoundAtPosition("mus_zombie_round_over", level.players[0].origin);
             level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Zombies ^8Have Advanced", "^8Most zombies are now faster than others.", "^8Faster zombies will flash twice before they pursue survivors.", 7, 0.25 );
         }
@@ -391,6 +393,7 @@ print_middle_when_speeds_alter()
                 wait 1;
             }
             wait 10;
+            PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
             PlaySoundAtPosition("mus_zombie_round_over", level.players[0].origin);
             level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Zombies ^8Have Advanced", "^8All zombies are now super equared to hunt you.", "^8Zombies are now able to super sprint!", 7, 0.25 );
             wait 8;
@@ -1080,7 +1083,8 @@ rocks_at_town_talk()
     wait 3;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Where are the meteors going?", "^8They were supposed to head towards the pylon. ^1Find Them^8!!", 8, 0.25 );
-    wait 10;
+    wait 12;
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Meteors From Outer Space", "^8From where..?", "I should go investigate them.", 6, 0.25 );
     level notify( "stop_mus_load_bur" );
@@ -1095,7 +1099,7 @@ rocks_at_pylon()
     level endon( "end_game" );
     //playfxontag( level._effect[ "screecher_hole" ], spas, "tag_origin" );
     level waittill( "end_break_check" );
-    wait 8 ;
+    wait 10 ;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "^8Great, the rocks are at pylon!", "^8Meet me there once you can..", 8, 0.25 );
     wait 8;
@@ -1103,7 +1107,7 @@ rocks_at_pylon()
     level thread monitor_players_pylon();
     level waittill( "spawn_schruder" );
     level.rifts_disabled_for_while = true;
-    wait 3;
+    wait 5;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "^8Ahh finally..", "^8Hello there!", 5, 0.25 );
     level thread do_everything_schruder_spawns();
@@ -1111,9 +1115,9 @@ rocks_at_pylon()
     wait 1;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "^8Wait..! I have a surprise for you,", "^8Hold still...!", 8, 0.25 );
-    wait 8;
+    wait 10;
 
-    
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^6Phd Flopper ^8Reward Unlocked", "^8Survivors can now take explosive damage, without losing health.", "^8Survivor's can also now do belly dive explosions.", 6, 0.25 );
     foreach( plays in level.players )
     {
@@ -1123,7 +1127,7 @@ rocks_at_pylon()
     wait 7;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "^8Haa.. I Hope you like it.", "^8Hold on a second..", 5, 0.25 );
-    wait 7;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "^8Something's coming.. I can hear it.", "^8I gotta disappear!", 5, 0.25 );
     wait 6;

@@ -577,12 +577,13 @@ dialogs_for_bar_step()
     wait 2;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here_too( "^8Well hello again my friend!", "^8Glad to see you doing fine..", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here_too( "I wanted to throw a party for you for your achievements!", "^8You've been a great help and I've never come across survivors like you..", 10, 1 );
-    wait 11;
+    wait 13;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here_too( "^8Here, come closer to the counter!", "^8The drinks are on me.. Feel free to pick any one of em!", 7, 1 );
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
      PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Drink Responsibly", "^8Drinking this random guy's mixes?", "For this time, why not.", 6, 0.25 );
     level notify( "spawn_drinks" );
@@ -594,7 +595,7 @@ dialogs_for_bar_step()
     wait 1.5;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here_too( "^8Hahaa, look what you've done!", "^8You drank too much you cheeky bastard!", 7, 1 );
-    wait 9;
+    wait 11;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here_too( "^8I'll be in touch with you once you've sobered up.", "^8Watch out, you might be a bit stubmly now haha. Bye bye!", 7, 1 );
 }

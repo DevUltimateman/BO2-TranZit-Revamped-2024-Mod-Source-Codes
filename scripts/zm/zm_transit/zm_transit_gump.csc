@@ -12,8 +12,10 @@
 
 init()
 {
-    replacefunc( clientscripts\mp\zm_transit_fx::precache_scripted_fx, ::precache_scripted_fx_new );
-replacefunc( clientscripts\mp\zm_transit_fx::precache_createfx_fx, ::precache_createfx_fx_new );
+    //2025 fix?
+    //noticed that some fxs stopped playing from game
+    //replacefunc( clientscripts\mp\zm_transit_fx::precache_scripted_fx, ::precache_scripted_fx_new );
+    //replacefunc( clientscripts\mp\zm_transit_fx::precache_createfx_fx, ::precache_createfx_fx_new );
     //replacefunc( clientscripts\mp\zombies\_zm_utility::init_fog_vol_to_visionset_monitor, ::init_fog_vol_to_visionset_monitor_new );
    // replacefunc( clientscripts\mp\zm_transit::init_fog_vol_to_visionset, ::lollipopvol );
   // replacefunc( clientscripts\mp\zombies\_zm::zombie_highest_vision_set_apply, ::newest_vision_set );
@@ -98,8 +100,10 @@ zanew( str_visionset, int_priority, flt_transition_time, int_clientnum )
 }
 main()
 {
-    replacefunc( clientscripts\mp\zm_transit_fx::precache_scripted_fx, ::precache_scripted_fx_new );
-replacefunc( clientscripts\mp\zm_transit_fx::precache_createfx_fx, ::precache_createfx_fx_new );
+    //2025 fix?
+    //noticed that some fxs stopped playing from game
+    //replacefunc( clientscripts\mp\zm_transit_fx::precache_scripted_fx, ::precache_scripted_fx_new );
+    //replacefunc( clientscripts\mp\zm_transit_fx::precache_createfx_fx, ::precache_createfx_fx_new );
     //level thread transit_vision_c hange();
     //level thread print_all_vision_triggers_to_get_an_idea();
     //replacefunc( clientscripts\mp\_visionset_mgr::finalize_type_clientfields, ::clientfielders );

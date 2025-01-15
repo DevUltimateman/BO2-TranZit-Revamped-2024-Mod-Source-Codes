@@ -108,7 +108,14 @@ raygunmk2Bullet()
         
         self waittill( "weapon_fired", weap );
         //weap = self getCurrentWeapon();
-        if( weap == "jetgun_zm" ){ wait 0.05; continue;}
+         if( weap == "jetgun_zm" ){ wait 0.05; continue;}
+        if( weap == "turbine_zm" ){ wait 0.05; continue;}
+        if( weap == "equip_turbine_zm" ){ wait 0.05; continue;}
+        if( weap == "equip_electrictrap_zm" ){ wait 0.05; continue;}
+        if( weap == "electrictrap_zm" ){ wait 0.05; continue;}
+        if( weap == "turbine" ){ wait 0.05; continue;}
+        if( weap == "electrictrap" ){ wait 0.05; continue;}
+
         if( weap == "ray_gun_zm" ){ wait 0.05; continue;}
         if( weap == "ray_gun_upgraded_zm" ){ wait 0.05; continue;}
         if( weap == "knife_ballistic_zm" ){ wait 0.05; continue;}
@@ -203,7 +210,7 @@ weaponTracerUpgrade()
             wait .1;
             if ( player usebuttonpressed() )
             {
-                player.score -= 30000;
+                player.score -= level.bullet_type_upgrade_cost_2;
                 player playsound( "zmb_cha_ching" );
                 player disableWeapons();
                 spas moveto( portal.origin, 0.1, 0, 0 );
@@ -229,8 +236,11 @@ waittill_price_reduce2()
 {
     level endon( "end_game" );
     level waittill( "alter_prices" );
-    new_value = level.bullet_type_upgrade_cost_2;
-    self setHintString( "^8[ ^9[{+activate}] ^8to upgrade you bullet type to ^1Galaxio Beamz ^8]\n^8Cost: ^9" + new_value );
+    wait 1;
+    level.bullet_type_upgrade_cost_2 = 15000;
+    wait 1;
+    self setHintString( "^8[ ^9[{+activate}] ^8to upgrade your bullet type to ^1Galaxio Beamz ^8]\n^8Cost: ^9" + level.bullet_type_upgrade_cost_2 );
+
 }
 
 drawGunInfo()

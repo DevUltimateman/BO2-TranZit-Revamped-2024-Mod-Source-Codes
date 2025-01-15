@@ -84,17 +84,17 @@ survivors_called_help()
     level thread do_dials( "My friend!", "The time has come, huh.", 6, 1 );
 	wait 8;
 	foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
-	level thread do_dials( "You've been such a great survivor..", "..a true accomplisher.", 6, 1 );
+	level thread do_dials( "You've been such a great survivor..", "..a true accomplisher.", 5, 1 );
 	wait 7;
 	foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
-	level thread do_dials( "However, I must tell you something else too at this point.", "You're not getting out alive from here.", 6, 1 );
+	level thread do_dials( "However, I must tell you something else too at this point.", "You're not getting out alive from here.", 5, 1 );
 	wait 7;
 	foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
 	level thread do_dials( "You're part of a ^9test scenario, and so am I.", "You're just a subject that ceases to exist after this experience.", 9, 1 );
-	wait 10;
+	wait 11;
 	foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
 	level thread do_dials( "You will be deleted,", "once the higher ups realize that you have no will to survive..", 7, 1 );
-	wait 7;
+	wait 9;
 	foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
 	level thread do_dials( "But don't be misinformed. ", "I was always rooting for you..", 6, 1 );
 	wait 8;
@@ -105,7 +105,7 @@ survivors_called_help()
 	wait 1;
 	level thread chaos_begins();
 	level thread do_dials( "At last,", "Goodbye my ^9friend.", 4, 1 );
-	wait 12; //perfect wait timer to start playing laughs and chaos
+	wait 11; //perfect wait timer to start playing laughs and chaos
 	level notify( "start_chaos" );
 	wait 2;
 	randomintranger = randomIntRange( 500, 1500 );

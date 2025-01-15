@@ -53,6 +53,7 @@ init()
     precacheshader( "menu_mp_party_ease_icon" );
     precacheshader( "menu_mp_killstreak_select" );
     precacheshader( "specialty_tombstone_zombies" );
+    precacheshader( "hud_us_grenade" ); /////////////////////////////////////////
 
     precacheshader( "tactical_gren_reticle" );
     level thread for_players();
@@ -265,7 +266,7 @@ print_if_i_have_eq_test()
     self.clays_shade.alpha = 1; //turn to 1 on release
     self.clays_shade.foreground = true;
     self.clays_shade.hidewheninmenu = true;
-    self.clays_shade setshader( "hud_status_dead", 12, 12 );
+    self.clays_shade setshader( "hud_us_grenade", 12, 12 ); //hud_us_grenade "hud_status_dead"
     self.clays_shade.color = (  0.69, 0.78, 0.54 );//green( 0.5, 0.7, 0.82 );//blue
 
 
@@ -285,32 +286,33 @@ print_if_i_have_eq_test()
     self.clays setvalue( "[{+actionslot 1}]" );
 
     //self setWeaponAmmoClip("frag_grenade_mp", 2);
-    
+    amount = self getweaponammoclip( self getCurrentOffhand() );
+    self.clays setvalue(  amount );
+    self.clays fadeovertime( 0.2 );
+    self.clays_shade fadeovertime( 0.2 );
+    self.clays_shade.alpha = 1; //debug 0
+    self.clays.alpha = 1; //debug 0
+
+
     self thread update_clays_constantly();
 
     
-    first_ = true;
-    brute = self getWeaponAmmoClip( "frag_grenade_zm" );
+    
     while( true )
     {
         
         ///&/iprintln( "ACTIONSLOT THAT IS ASSIGNED TO TURBINE: [{+actionslot 1}]" );
-        if( brute < self getWeaponAmmoClip( "frag_grenade_zm" ) || brute > self getWeaponAmmoClip( "frag_grenade_zm" )  )
-        {
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
-            self.clays fadeovertime( 0.2 );
-            self.clays_shade fadeovertime( 0.2 );
-            self.clays_shade.alpha = 1; //debug 0
-            self.clays.alpha = 1; //debug 0
-            wait 0.2;
-        }
+       // if( brute < self getWeaponAmmoClip( "frag_grenade_zm" ) || brute > self getWeaponAmmoClip( "frag_grenade_zm" )  )
+        //{
+        //    
+        //    wait 0.2;
+        //}
         
         //turbine check
         if( self hasWeapon( t_1 ) || self hasweapon( t_2 ) )
         {
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+            //amount = self getweaponammoclip( "frag_grenade_zm" );
+            //self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
             self.eq_actionslot_shower fadeovertime( 1 );
@@ -329,8 +331,8 @@ print_if_i_have_eq_test()
             {
                 wait 1;
             }
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+            //amount = self getweaponammoclip( "frag_grenade_zm" );
+           // self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
             self.eq_actionslot_shower fadeovertime( 1 );
@@ -342,8 +344,8 @@ print_if_i_have_eq_test()
         //jet check
         if( self hasWeapon( j_1 ) || self hasweapon( j_2 ) )
         {
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+            //amount = self getweaponammoclip( "frag_grenade_zm" );
+            //self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
             self.eq_actionslot_shower fadeovertime( 1 );
@@ -361,8 +363,8 @@ print_if_i_have_eq_test()
             {
                 wait 1;
             }
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+            //amount = self getweaponammoclip( "frag_grenade_zm" );
+            //self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_actionslot_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
@@ -373,8 +375,8 @@ print_if_i_have_eq_test()
         //turret check
         if( self hasWeapon( tu_1 ) || self hasweapon( tu_2 ) )
         {
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+            //amount = self getweaponammoclip( "frag_grenade_zm" );
+            //self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
             self.eq_actionslot_shower fadeovertime( 1 );
@@ -392,8 +394,8 @@ print_if_i_have_eq_test()
             {
                 wait 1;
             }
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+           // amount = self getweaponammoclip( "frag_grenade_zm" );
+           // self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_actionslot_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
@@ -404,8 +406,8 @@ print_if_i_have_eq_test()
         //telec check
         if( self hasWeapon( el_1 ) || self hasweapon( el_2 ) )
         {
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+           // amount = self getweaponammoclip( "frag_grenade_zm" );
+           // self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
             self.eq_actionslot_shower fadeovertime( 1 );
@@ -422,8 +424,8 @@ print_if_i_have_eq_test()
             {
                 wait 1;
             }
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+           // amount = self getweaponammoclip( "frag_grenade_zm" );
+           // self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_actionslot_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
@@ -434,8 +436,8 @@ print_if_i_have_eq_test()
         //riot check
         if( self hasWeapon( ri_1 ) || self hasweapon( ri_2 ) )
         {
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+           // amount = self getweaponammoclip( "frag_grenade_zm" );
+           // self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
             self.eq_actionslot_shower fadeovertime( 1 );
@@ -452,8 +454,8 @@ print_if_i_have_eq_test()
             {
                 wait 1;
             }
-            amount = self getweaponammoclip( "frag_grenade_zm" );
-            self.clays setvalue(  amount );
+            //amount = self getweaponammoclip( "frag_grenade_zm" );
+           // self.clays setvalue(  amount );
             self.eq_hud_shower fadeovertime( 1 );
             self.eq_actionslot_shower fadeovertime( 1 );
             self.eq_hud_shower.alpha = 0;
@@ -467,29 +469,31 @@ print_if_i_have_eq_test()
 update_clays_constantly()
 {
     self endon( "disconnect" );
-    level endon( "end_game" );
-    old_amount = self getweaponammoclip( "frag_grenade_zm" );
+    level endon( "end_game" ); //hud_us_grenade
     
-        while( true )
+    old_amount = self getweaponammoclip( self getCurrentOffhand()  ); // "frag_grenade_zm"
+    
+    wait 6;
+    while( true )
+    {
+        new_amount = self getweaponammoclip( self getCurrentOffhand() ); // "frag_grenade_zm"
+        if( new_amount != old_amount )
         {
-            new_amount = self getweaponammoclip( "frag_grenade_zm" );
-            if( new_amount != old_amount )
-            {
-                self.clay setvalue( self getweaponammoclip( "frag_grenade_zm" ) );
-                wait 0.1;
-                new_amount = self getweaponammoclip( "frag_grenade_zm" );
-                old_amount = self getweaponammoclip( "frag_grenade_zm" );
-                wait 0.25;
-            }
-            if( new_amount == old_amount )
-            {
-                while( self getweaponammoclip( "frag_grenade_zm" ) == old_amount )
-                {
-                    wait 0.1;
-                }
-            }
-            
+            self.clays setvalue( self getweaponammoclip( self getCurrentOffhand() ) ); // "frag_grenade_zm"
+            wait 0.1;
+            new_amount = self getweaponammoclip( self getCurrentOffhand()  ); // "frag_grenade_zm"
+            old_amount = self getweaponammoclip( self getCurrentOffhand()  ); // "frag_grenade_zm"
+            wait 0.25;
         }
+        if( new_amount == old_amount )
+        {
+            while( self getweaponammoclip( self getCurrentOffhand() ) == old_amount ) // "frag_grenade_zm"
+            {
+                wait 0.1;
+            }
+        }
+        
+    }
 }
 test_firing_increase()
 {
@@ -1267,6 +1271,7 @@ update_ammo_stock_set_text()
             || weapon != "zombie_builder_zm" 
             || weapon != "zombie_fists_zm"
             || weapon != "turbine" 
+            || weapon != "turbine_zm"
             || weapon != "equip_turbine_zm" 
             || weapon != "frag_grenade_zm" 
             || weapon != "claymore_zm" 
@@ -1277,7 +1282,9 @@ update_ammo_stock_set_text()
             || weapon != "tazer_knuckles_zm"
             || weapon != "cymbal_monkey_zm" 
             || weapon != "sticky_grenade_zm" 
-            || weapon !=  "bowie_knife_zm" )
+            || weapon !=  "bowie_knife_zm"
+            || weapon !=  "none"
+            || weapon !=  "zombie_knuckle_crack"  )
             {
                 self.weapon_ammo_stock setvalue( self.stock_to_compare  );
                 while( self.stock_to_compare == self getweaponammostock( self getcurrentweapon() ) )
@@ -1292,6 +1299,7 @@ update_ammo_stock_set_text()
         || weapon != "" 
         || weapon != "zombie_builder_zm" 
         || weapon != "turbine" 
+        || weapon != "turbine_zm"
         || weapon != "equip_turbine_zm" 
         || weapon != "frag_grenade_zm" 
         || weapon != "claymore_zm" 
@@ -1302,7 +1310,9 @@ update_ammo_stock_set_text()
         || weapon != "tazer_knuckles_zm"
         || weapon != "cymbal_monkey_zm" 
         || weapon != "sticky_grenade_zm" 
-        || weapon !=  "bowie_knife_zm" )
+        || weapon !=  "bowie_knife_zm"
+        || weapon !=  "zombie_knuckle_crack"
+        || weapon !=  "none"  )
         {
             self.stock_to_compare = self getweaponammostock( self getcurrentweapon() );
             self.weapon_ammo_stock setvalue( self.stock_to_compare );
@@ -1343,6 +1353,7 @@ update_ammo_hud()
             if( weapon == "jetgun_zm" 
             || weapon == "" 
             || weapon == "zombie_builder_zm" 
+            || weapon == "turbine_zm"
             || weapon == "turbine" 
             || weapon == "equip_turbine_zm" 
             || weapon == "frag_grenade_zm" 
@@ -1354,7 +1365,10 @@ update_ammo_hud()
             || weapon == "tazer_knuckles_zm"
             || weapon == "cymbal_monkey_zm" 
             || weapon == "sticky_grenade_zm" 
-            || weapon ==  "bowie_knife_zm" )
+            || weapon ==  "bowie_knife_zm"
+            || weapon ==  "zombie_knuckle_crack"
+            || weapon ==  "none" 
+             )
             {
                 skip = true;
                 
@@ -1421,15 +1435,18 @@ update_ammo_hud()
             || weapon == "turbine" 
             || weapon == "equip_turbine_zm" 
             || weapon == "claymore_zm" 
+            || weapon == "turbine_zm"
             || weapon == "riotshield_zm" 
             || weapon == "equip_turret_zm" 
             || weapon == "equip_riotshield_zm"
             || weapon == "equip_electrictrap_zm" 
             || weapon == "tazer_knuckles_zm"
+            || weapon ==  "zombie_knuckle_crack"
             || weapon == "cymbal_monkey_zm" 
             || weapon == "sticky_grenade_zm" 
             || weapon == "frag_grenade_zm" 
-            || weapon ==  "bowie_knife_zm" )
+            || weapon ==  "bowie_knife_zm" 
+            || weapon ==  "none" )
             {
                 skip = true;
                 self.weapon_ammo fadeovertime( 0.05 );
@@ -1497,17 +1514,20 @@ also_monitor_weapon_change_for_fading()
             || weapon != "" 
             || weapon != "zombie_builder_zm" 
             || weapon != "turbine" 
+            ||  weapon != "turbine_zm"
             || weapon != "equip_turbine_zm" 
             || weapon != "claymore_zm" 
             || weapon != "riotshield_zm" 
             || weapon != "equip_turret_zm" 
             || weapon != "equip_riotshield_zm"
             || weapon != "equip_electrictrap_zm" 
+            || weapon !=  "zombie_knuckle_crack"
             || weapon != "tazer_knuckles_zm"
             || weapon != "cymbal_monkey_zm" 
             || weapon != "sticky_grenade_zm" 
             || weapon != "frag_grenade_zm" 
-            || weapon !=  "bowie_knife_zm" )
+            || weapon !=  "bowie_knife_zm" 
+            || weapon !=  "none" )
         {
             self thread ammo_fade_fast();
         }

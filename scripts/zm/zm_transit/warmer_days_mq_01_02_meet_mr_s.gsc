@@ -126,10 +126,10 @@ step3_talk()
     wait 3;
     
     meeting_vox13( "" );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox14( "" );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox15( "" );
 
@@ -147,16 +147,16 @@ step3_talk()
     }
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox16( "" );
-    wait 8;
-    foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
-    meeting_vox17( "" );
-    wait 9;
-    foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
-    meeting_vox18( "" );
     wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
+    meeting_vox17( "" );
+    wait 11;
+    foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
+    meeting_vox18( "" );
+    wait 12;
+    foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox19( "" );
-    wait 8;
+    wait 10;
     level notify( "start_fixing_rift_portals" );
     PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Rift Lamps", "^8What again..?", "", 6, 0.25 );
@@ -310,7 +310,9 @@ step1_talk()
 
     level waittill( "can_start_normal_zombie_huds" );
     wait 12.5;
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
+    
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Beginning Of The Journey", "^8Where am I..", "^8..and what does this guy want?", 6, 0.25 );
     gets = level.players;
     foreach( g in gets )
@@ -524,17 +526,17 @@ schruder_talks_everything_part1()
     wait 3;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox01("");
-    wait 6;
+    wait 8;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox02("");
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox03("");
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox04("");
     level notify( "stop_mus_load_bur" );
-    wait 8;
+    wait 10;
     //level notify( "stop_playing_sound" );
     if( level.dev_time ){ iprintln( "STEP 1 TALKS COMPLETED" ); }
     level thread schruder_talks_everything_part2();
@@ -547,20 +549,21 @@ schruder_talks_everything_part2()
     wait 2;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox07("");
-    wait 7;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox08("");
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox09("");
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox10("");
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     meeting_vox11("");
     level.not_doable_yet = false;
-    wait 11;
+    wait 13;
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Obey The Voices", "^8This guy want's me to build us some sort of machine.", "I should start looking for the parts..", 6, 0.25 );
     if( level.dev_time ){ iprintln( "STEP 2 TALKS COMPLETED" ); }
@@ -825,6 +828,7 @@ print_level_vars()
 
 define_global_subtitles()
 {
+    
     level.subtitle_upper = NewHudElem();
 	level.subtitle_upper.x = 0;
 	level.subtitle_upper.y = -42;
@@ -863,9 +867,10 @@ machine_says( sub_up, sub_low, duration, fadeTimer )
     //don't start drawing new hud if one already exists 
     if(  isdefined( level.subtitles_on_so_have_to_wait ) && level.subtitles_on_so_have_to_wait )
     {
-        while(  level.subtitles_on_so_have_to_wait ) { wait 1; }
+        while(  level.subtitles_on_so_have_to_wait ) { wait 0.25; }
     }
-    wait 1;
+
+    wait 0.1;
     define_global_subtitles();
     level.subtitles_on_so_have_to_wait = true;
     level.play_schruder_background_sound = true;
@@ -908,6 +913,7 @@ machine_says( sub_up, sub_low, duration, fadeTimer )
     {
         level.subtitle_lower destroy();
     }
+    level.subtitles_on_so_have_to_wait = false;
     
 }
 

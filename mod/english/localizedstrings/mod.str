@@ -1,0 +1,897 @@
+    // Dumped from fastfile "mod".
+// In their original format the strings might have been separated in multiple files.
+VERSION             "1"
+CONFIG              "C:/projects/cod/t6/bin/StringEd.cfg"
+FILENOTES           ""
+
+REFERENCE           CGAME_CONNECTIONINTERUPTED
+LANG_ENGLISH        "^3Connection Interrupted"
+
+REFERENCE           CGAME_SB_PING
+LANG_ENGLISH        "^3Ping"
+
+REFERENCE           CGAME_SB_REVIVES
+LANG_ENGLISH        "^2Revives"
+
+REFERENCE           CGAME_SB_SCORE
+LANG_ENGLISH        "^9Score"
+
+REFERENCE           CGAME_SPECTATING
+LANG_ENGLISH        "^8Spectating..."
+
+REFERENCE           CGAME_SPECTATOR
+LANG_ENGLISH        "^8Spectating..."
+
+REFERENCE           CGAME_SPECTATORS
+LANG_ENGLISH        "^8Spectators"
+
+REFERENCE           CGAME_YES
+LANG_ENGLISH        "^2Yes"
+
+
+
+
+REFERENCE           MENU_ACTIVITY_FEED
+LANG_ENGLISH        "^2Survivors"
+
+
+REFERENCE           MENU_GAME_INVITES_CAPS
+LANG_ENGLISH        "^3Invites"
+
+REFERENCE           MENU_LOBBY_LIST
+LANG_ENGLISH        "Lista de lobby"
+
+REFERENCE           MENU_LOBBY_LIST_CAPS
+LANG_ENGLISH        "Lista de lobby"
+
+REFERENCE           MENU_NOTICE
+LANG_ENGLISH        "Something funny happened :D"
+
+REFERENCE           MENU_SOLO
+LANG_ENGLISH        "MENU SOLO 1"
+
+REFERENCE           MENU_SOLO_HOMEPAGE
+LANG_ENGLISH        "^9MENU SOLO 2"
+
+REFERENCE           MENU_ZM_BURIED_CAPS
+LANG_ENGLISH        "BURIED"
+
+REFERENCE           MENU_ZM_HIGHRISE_CAPS
+LANG_ENGLISH        "DIE RISE"
+
+REFERENCE           MENU_ZM_PRISON_CAPS
+LANG_ENGLISH        "MOB OF THE DEAD"
+
+REFERENCE           MENU_ZM_TOMB_CAPS
+LANG_ENGLISH        "ORIGINS"
+
+REFERENCE           MPUI_ELITE_YES
+LANG_ENGLISH        "^2Yes"
+
+
+REFERENCE           SCRIPT_HINT_DOOR
+LANG_ENGLISH        "Segure ^9[{+activate}]^7 para comprar a porta"
+
+REFERENCE           ZM_PRISON_CONVERT_START
+LANG_ENGLISH        "Segure ^9[{+activate}]^7 para converter Blundergat em Acidgat"
+
+REFERENCE           ZMUI_DIFFICULTY_CAPS
+LANG_ENGLISH        "Difficulty"
+
+REFERENCE           ZMUI_DIFFICULTY_DESC
+LANG_ENGLISH        "Changes spawning & running speeds of zombies."
+
+REFERENCE           ZMUI_DIFFICULTY_EASY_CAPS
+LANG_ENGLISH        "Beginner"
+
+REFERENCE           ZMUI_DIFFICULTY_NORMAL_CAPS
+LANG_ENGLISH        "Experienced"
+
+REFERENCE           ZMUI_DOWNS_CAPS
+LANG_ENGLISH        "^3Downs"
+
+REFERENCE           ZMUI_HEADSHOTS_CAPS
+LANG_ENGLISH        "Headshots"
+
+REFERENCE           ZMUI_KILLS_CAPS
+LANG_ENGLISH        "Kills"
+
+REFERENCE           ZMUI_PLAYER_NUM_1
+LANG_ENGLISH        "P1"
+
+REFERENCE           ZMUI_PLAYER_NUM_2
+LANG_ENGLISH        "P2"
+
+REFERENCE           ZMUI_PLAYER_NUM_3
+LANG_ENGLISH        "P3"
+
+REFERENCE           ZMUI_PLAYER_NUM_4
+LANG_ENGLISH        "P4"
+
+REFERENCE           ZMUI_PLAYTEST_CAPS
+LANG_ENGLISH        "PLAY TEST"
+
+REFERENCE           ZMUI_REVIVES_CAPS
+LANG_ENGLISH        "Revives"
+
+REFERENCE           ZMUI_SOLO_PLAY_CAPS
+LANG_ENGLISH        "^8Official Solo Game"
+
+REFERENCE           ZMUI_SOLO_PLAY_DESC
+LANG_ENGLISH        "Fight against the undead by yourself."
+
+REFERENCE           ZMUI_STANDARD
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_STANDARD_CAPS
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_STANDARD_DESC_FARM
+LANG_ENGLISH        "^9Farm ^8survival,\nwith visual updates."
+
+REFERENCE           ZMUI_STANDARD_DESC_NUKED
+LANG_ENGLISH        "Please load ^9City Of Mars ^8mod before proceeding."
+
+REFERENCE           ZMUI_STANDARD_DESC_TOWN
+LANG_ENGLISH        "^9Town ^8survival,\nwith visual updates."
+
+REFERENCE           ZMUI_CLASSIC_DESC_TRANSIT
+LANG_ENGLISH        "Uncover the secrets of ^9Doctor Schruder's plan^8.\n^8Full experience of ^9Warmer ^9Days ^9Update."
+
+REFERENCE           ZMUI_STANDARD_DESC_TRANSIT
+LANG_ENGLISH        "^9Bus Depo ^8survival,\nwith visual updates."
+
+REFERENCE           ZMUI_CLASSIC
+LANG_ENGLISH        "TranZit Reimagined 2024"
+
+REFERENCE           ZMUI_CLASSIC_CAPS
+LANG_ENGLISH        "Warmer Days"
+
+REFERENCE           ZMUI_STARTING_ROUND_CAPS
+LANG_ENGLISH        "Starting round"
+
+REFERENCE           ZMUI_STARTING_ROUND_DESC
+LANG_ENGLISH        "Change the start round of the game."
+
+REFERENCE           ZMUI_SURVIVAL
+LANG_ENGLISH        "survival"
+
+REFERENCE           ZMUI_SURVIVAL_CAPS
+LANG_ENGLISH        "Survival"
+
+
+
+REFERENCE           ZMUI_TOWN
+LANG_ENGLISH        "Dr. Stalinburgh's Townhall"
+
+REFERENCE           ZMUI_TOWN_CAPS
+LANG_ENGLISH        "Dr. Stalinburgh's Townhall"
+
+REFERENCE           ZMUI_TRANSIT
+LANG_ENGLISH        "Tranzit Reimagined 2024"
+
+REFERENCE           ZMUI_TRANSIT_CAPS
+LANG_ENGLISH        "Warmer Days"
+
+REFERENCE           ZMUI_TRANSIT_LOC
+LANG_ENGLISH        "Tranzit Reimagined 2024"
+
+REFERENCE           ZMUI_ZSTANDARD
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_ZSTANDARD_CAPS
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_ZSTANDARD_SHORT_CAPS
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_ZSTANDARD_ZM_NUKED_CAPS
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_ZSTANDARD_ZM_TRANSIT_CAPS
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_ZSTANDARD_ZMUI_NUKED_LOC_CAPS
+LANG_ENGLISH        "Survival"
+
+REFERENCE           ZMUI_ZSTANDARD_ZMUI_TRANSIT_LOC_CAPS
+LANG_ENGLISH        "Survival"
+
+
+REFERENCE           ZOMBIE_GAME_OVER
+LANG_ENGLISH        "^9Survivors have lost..."
+
+REFERENCE           ZOMBIE_PLAYER_IS_BEING_REVIVED
+LANG_ENGLISH        "Survivor^3 &&1 ^7is being revived"
+
+REFERENCE           ZOMBIE_PLAYER_IS_REVIVING_YOU
+LANG_ENGLISH        "Survivor^3 &&1 ^7is reviving you"
+
+REFERENCE           ZOMBIE_PLAYER_NEEDS_TO_BE_REVIVED
+LANG_ENGLISH        "Survivor^3 &&1 ^7needs to be revived"
+
+
+
+REFERENCE           ZOMBIE_REVIVING
+LANG_ENGLISH        "^2Reviving"
+
+REFERENCE           ZOMBIE_REVIVING_SOLO
+LANG_ENGLISH        "^2Reviving "
+
+REFERENCE           ZOMBIE_SURVIVED_NOMANS
+LANG_ENGLISH        "^8You survived^9 &&1"
+
+REFERENCE           ZOMBIE_SURVIVED_NONE
+LANG_ENGLISH        "^8You Survived 0 ^9Scenarios"
+
+REFERENCE           ZOMBIE_SURVIVED_ROUND
+LANG_ENGLISH        "^8You Survived^9 1 ^8Scenario"
+
+REFERENCE           ZMUI_CUSTOM_MATCH_DESC
+LANG_ENGLISH        "Host a custom game of Warmer Days to either yourself or for your friends."
+
+REFERENCE           ZOMBIE_SURVIVED_ROUNDS
+LANG_ENGLISH        "^8You Survived^9 &&1 ^8Scenarios"
+
+REFERENCE           ZMUI_DIFFICULTY_CAPS
+LANG_ENGLISH        "Difficulty"
+
+REFERENCE           ZMUI_DOGS_CAPS
+LANG_ENGLISH        "Hellhounds"
+
+REFERENCE           ZMUI_GRIEF_CAPS
+LANG_ENGLISH        "Grief"
+
+REFERENCE           ZMUI_HEADSHOTS_CAPS
+LANG_ENGLISH        "Headshots"
+
+REFERENCE           ZMUI_HEADSHOTS_ONLY_CAPS
+LANG_ENGLISH        "Headshots Only"
+
+REFERENCE           ZMUI_MAGIC_CAPS
+LANG_ENGLISH        "Magic"
+
+REFERENCE           ZMUI_MAP_CAPS
+LANG_ENGLISH        "Map"
+
+REFERENCE           ZMUI_LOCAL_CAPS
+LANG_ENGLISH        "Local"
+
+
+REFERENCE           ZMUI_ZCLASSIC_CAPS
+LANG_ENGLISH        "Tranzit Reimagined 2024"
+
+REFERENCE           ZMUI_ZCLASSIC_ZM_TRANSIT_CAPS
+LANG_ENGLISH        "^9Tranzit Reimagined 2024"
+
+
+
+REFERENCE           ZOMBIE_BOUGHT_ELECTRIC_TRAP
+LANG_ENGLISH        "^8Took Electric Trap"
+
+REFERENCE           ZOMBIE_BOUGHT_JETGUN
+LANG_ENGLISH        "^8Took Jet Gun"
+
+REFERENCE           ZOMBIE_BOUGHT_RIOT
+LANG_ENGLISH        "^8Took Zombie Shield"
+
+REFERENCE           ZOMBIE_BOUGHT_TURBINE
+LANG_ENGLISH        "^8Took Turbine"
+
+REFERENCE           ZOMBIE_BOUGHT_TURRET
+LANG_ENGLISH        "^8Took Turret"
+
+REFERENCE           ZOMBIE_BUILD_BRIDGE
+LANG_ENGLISH        "Hold ^9[{+activate}]^7 to Build Bridge [Cost: 1000]"
+
+REFERENCE           ZOMBIE_BUILD_BUSHATCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_BUSLADDER
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_CATTLE_CATCHER
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_DINERHATCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_ELECTRIC_TRAP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_JETGUN
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_PAP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_GRAB
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to pick up Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_HAVE_ONE
+LANG_ENGLISH        "^8Already have one"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_MISSING
+LANG_ENGLISH        "^8Part Required"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_MORE
+LANG_ENGLISH        "^8Additional Parts required"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_ONLY_ONE
+LANG_ENGLISH        "^8There can be only one"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_SWITCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_PIECE_WRONG
+LANG_ENGLISH        "^8Incorrect Part"
+
+REFERENCE           ZOMBIE_BUILD_POWER_SWITCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_RIOT
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_SQ_COMMON
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_TURBINE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILD_TURRET
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to add Part ^9]"
+
+REFERENCE           ZOMBIE_BUILDING
+LANG_ENGLISH        "^8Building..."
+
+REFERENCE           ZOMBIE_BUILDING_ELECTRIC_TRAP
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_JETGUN
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_PAP
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_POWER_SWITCH
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_RIOT
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_SQ_COMMON
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_TURBINE
+LANG_ENGLISH        "^2Part added"
+
+REFERENCE           ZOMBIE_BUILDING_TURRET
+LANG_ENGLISH        "^2Part added"
+
+
+
+
+
+
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_1000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 1000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_1250
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 1250 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_1500
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 1500 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_1750
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 1750 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_200
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 200 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_2000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 2000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_250
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 250 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_3000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 3000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_500
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 500 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_750
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: 750 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLEAR_DEBRIS_COST
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Clear Debris ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_CLOSE_DOOR
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to close door ^9]"
+
+REFERENCE           ZOMBIE_WEAPON_LOCKER_STORE
+LANG_ENGLISH        " ^9[ ^9[{+activate}]^8 to Place Weapon ^9]"
+
+REFERENCE           SCRIPT_HINT_DOOR
+LANG_ENGLISH       "^9[ ^9[{+activate}]^8 to Open Door ^9]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_100
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 100 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_1000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 1000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_1250
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 1250 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_1500
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 1500 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_16000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 16000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_1750
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 1750 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_200
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 200 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_2000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 2000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_250
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 250 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_2500
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 2500 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_3000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 3000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_4000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 4000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_500
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 500 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_5000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 5000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_750
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 750 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_8000
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: 8000 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_BUY_OPEN_DOOR_COST
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Open Door ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_BUTTON_REWARD_BARRIER
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Rebuild Barrier ^9]"
+
+REFERENCE           ZOMBIE_BUTTON_TO_REVIVE_PLAYER
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to Revive ^9]"
+
+
+REFERENCE           ZOMBIE_BUTTON_TO_SUICIDE
+LANG_ENGLISH         "^9[ ^9[{+activate}]^8 to Pussy Out ^9]"
+
+REFERENCE           ZOMBIE_CLAYMORE_HOWTO
+LANG_ENGLISH        "^8Press ^9[{+actionslot 4}]^8 to equip ^9[{+attack}]^8 to place a ^9Claymore"
+
+REFERENCE           ZOMBIE_CLAYMORE_PICKUP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to pick up ^3Claymore ^9]"
+
+REFERENCE           ZOMBIE_CLAYMORE_PURCHASE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Claymore ^9]\n^8[ ^9Cost: 1000 ^8]"
+
+
+
+REFERENCE           ZOMBIE_ELECTRIC_SWITCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to ^2turn on ^3the Power ^9]"
+
+REFERENCE           ZOMBIE_ELECTRIC_SWITCH_OFF
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to ^1turn off ^3the Power ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_ELECTRICTRAP_HOWTO
+LANG_ENGLISH        "^9[ ^9[{+actionslot 1}]^8 to equip ^3Electric Trap ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_ELECTRICTRAP_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Electric Trap ^9]"
+
+
+
+
+REFERENCE           ZOMBIE_EQUIP_JETGUN_HOWTO
+LANG_ENGLISH        "^9[ ^9[{+actionslot 1}]^8 to equip ^3Jet Gun ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_JETGUN_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Jet Gun ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_RIOTSHIELD_HOWTO
+LANG_ENGLISH        "^9[ ^9[{+actionslot 1}]^8 to equip ^3Zombie Shield ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_RIOTSHIELD_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Zombie Shield ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_TURBINE_HOWTO
+LANG_ENGLISH        "^9[ ^9[{+actionslot 1}]^8 to equip ^3Turbine ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_TURBINE_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Turbine ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_TURRET_HOWTO
+LANG_ENGLISH        "^9[ ^9[{+actionslot 1}]^8 to equip ^3Turret ^9]"
+
+REFERENCE           ZOMBIE_EQUIP_TURRET_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Turret ^9]"
+
+
+REFERENCE           ZOMBIE_FIRE_SALE_COST
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for a ^3Random Weapon ^9]\n^8[ ^9Cost: 10 ^8]"
+
+
+REFERENCE           ZOMBIE_GET_UPGRADED
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Upgraded Weapon ^9]"
+
+REFERENCE           ZOMBIE_GRAB_ELECTRICTRAP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Electric Trap ^9]"
+
+REFERENCE           ZOMBIE_GRAB_JETGUN
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Jet Gun ^9]"
+
+REFERENCE           ZOMBIE_GRAB_RIOTSHIELD
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Zombie Shield ^9]"
+
+REFERENCE           ZOMBIE_GRAB_TURBINE_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Turbine ^9]"
+
+REFERENCE           ZOMBIE_GRAB_TURRET_PICKUP_HINT_STRING
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Turret ^9]"
+
+
+REFERENCE           ZOMBIE_NAVCARD_FAIL
+LANG_ENGLISH        "^1That is the incorrect navcard!"
+
+REFERENCE           ZOMBIE_NAVCARD_PICKUP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to take ^3Navcard ^9]"
+
+REFERENCE           ZOMBIE_NAVCARD_SUCCESS
+LANG_ENGLISH        "^2The navcard was accepted successfully"
+
+REFERENCE           ZOMBIE_NAVCARD_USE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to insert ^3Navcard ^9]"
+
+REFERENCE           ZOMBIE_NEED_LOCAL_POWER
+LANG_ENGLISH        "^8You'll need a source of power!"
+
+REFERENCE           ZOMBIE_NEED_POWER
+LANG_ENGLISH        "^8You must turn on the Power first!"
+
+REFERENCE           ZOMBIE_PERK_ADDITIONALPRIMARYWEAPON          
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^2Mule Kick ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_DIVETONUKE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^6PHD Flopper ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_DOUBLETAP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^9Double Tap 2.0 ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_FASTRELOAD
+LANG_ENGLISH         "^9[ ^9[{+activate}]^8 for ^2Speed Cola ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_GENERIC
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to ^3Buy ^9]"
+
+
+REFERENCE           ZOMBIE_PERK_JUGGERNAUT
+LANG_ENGLISH         "^9[ ^9[{+activate}]^8 for ^1Jugger-Nog ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_MARATHON
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Stamin-Up ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_PACKAPUNCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^5Pack-a-Punch ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+
+REFERENCE           ZOMBIE_PERK_PACKAPUNCH_ATT
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^5Pack-a-Punch ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+
+REFERENCE           ZOMBIE_PERK_QUICKREVIVE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^5Quick Revive ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_QUICKREVIVE_SOLO
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^5Quick Revive ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+REFERENCE           ZOMBIE_PERK_TOMBSTONE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^8Tombstone ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+
+
+REFERENCE           ZOMBIE_RANDOM_WEAPON_650
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for a ^3Random Weapon ^9]\n^8[ ^9Cost: 650 ^8]"
+
+REFERENCE           ZOMBIE_RANDOM_WEAPON_750
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for a ^3Random Weapon ^9]\n^8[ ^9Cost: 750 ^8]"
+
+REFERENCE           ZOMBIE_RANDOM_WEAPON_850
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for a ^3Random Weapon ^9]\n^8[ ^9Cost: 850 ^8]"
+
+REFERENCE           ZOMBIE_RANDOM_WEAPON_950
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for a ^3Random Weapon ^9]\n^8[ ^9Cost: 950 ^8]"
+
+REFERENCE           ZOMBIE_RANDOM_WEAPON_COST
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^6Mystery Box ^9]\n^8[ ^9Cost: &&1 ^8]"
+
+
+REFERENCE           ZOMBIE_TRADE_EQUIP
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Equipment ^9]"
+
+REFERENCE           ZOMBIE_TRADE_WEAPON
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Weapon ^9]"
+
+REFERENCE           ZOMBIE_TRADE_WEAPONS
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 to ^3Trade Weapons ^9]"
+
+REFERENCE           ZOMBIE_TRAP_ACTIVE
+LANG_ENGLISH        "^2The trap is active."
+
+REFERENCE           ZOMBIE_TRAP_COOLDOWN
+LANG_ENGLISH        "^3The trap is recharging."
+
+REFERENCE           ZOMBIE_TURRET_NOT_AVAILABLE
+LANG_ENGLISH        "^1Turret Unavailable"
+
+
+
+
+
+REFERENCE           MENU_CUSTOM_GAMES
+LANG_ENGLISH        "^9Tranzit Reimagined 2024"
+
+REFERENCE           MENU_CUSTOM_GAMES
+LANG_ENGLISH        "^9Tranzit Reimagined 2024"
+
+REFERENCE           MENU_CUSTOMGAMES_CAPS
+LANG_ENGLISH        "^9Tranzit Reimagined 2024"
+
+REFERENCE           MPUI_CUSTOM_GAMES_CAPS
+LANG_ENGLISH        "^9Tranzit Reimagined 2024"
+
+REFERENCE           MENU_SERVER_BROWSER_CAPS
+LANG_ENGLISH        "Join Public Server With ^9Tranzit Reimagined 2024 Textures"
+
+
+REFERENCE           MENU_THEATER_CAPS
+LANG_ENGLISH        "^8Previously Played Games"
+
+REFERENCE           MPUI_LEADERBOARDS_CAPS
+LANG_ENGLISH        "^8Leaderboards"
+
+REFERENCE           MENU_OPTIONS_CAPS
+LANG_ENGLISH        "^9Options"
+
+REFERENCE           MENU_MODS_CAPS
+LANG_ENGLISH        "^8Click here and press ^3U ^8to unload ^9Tranzit Reimagined 2024"
+
+REFERENCE           MENU_ZOMBIE_CAPS
+LANG_ENGLISH        "^9Warmer Days Update"
+
+REFERENCE           MPUI_START_MATCH_CAPS
+LANG_ENGLISH        "Start Scenario"
+
+REFERENCE           MENU_R_CIRCLE
+LANG_ENGLISH        "^8Developed by ^9Ultimateman"
+
+REFERENCE           MENU_DISABLED_CAPS
+LANG_ENGLISH        "Disabled"
+
+REFERENCE           MENU_ENABLED_CAPS
+LANG_ENGLISH        "Enabled"
+
+
+REFERENCE           MENU_ZOMBIE_MODE_CAPS
+LANG_ENGLISH        "^9Warmer Days Update"
+
+
+REFERENCE           MENU_ZOMBIES_CAPS
+LANG_ENGLISH        "^9Warmer Days Update"
+
+
+REFERENCE           MPUI_ZSURVIVAL_CAPS
+LANG_ENGLISH        "Zombies"
+
+
+
+REFERENCE           PLATFORM_XBOX_LIVE_CAPS
+LANG_ENGLISH        "^8Play"
+
+REFERENCE           PLATFORM_XBOXLIVE_INSTR
+LANG_ENGLISH        "^8Play"
+
+REFERENCE           MENU_TARGET_ASSIST_CAPS
+LANG_ENGLISH        "Aim Assist"
+
+REFERENCE           MENU_CHEATS
+LANG_ENGLISH        "SS"
+
+REFERENCE           MENU_CHEATS_LOWCASE
+LANG_ENGLISH        "SS"
+
+REFERENCE           MENU_SINGLE_PLAYER_CAPS
+LANG_ENGLISH        "^8Campaign"
+
+REFERENCE           MENU_SINGLEPLAYER_CAPS
+LANG_ENGLISH        "^8Campaign"
+
+REFERENCE           MENU_MULTIPLAYER_CAPS
+LANG_ENGLISH        "^9Multiplayer"
+
+
+REFERENCE           ZOMBIE_WEAPON_LSAT
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3LSAT^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M14
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M14^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M16
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M16^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M16_GL
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M16 w/GL^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M1911
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M1911^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M202_FLASH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M202 Flash^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M32
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M32 GL^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_M60
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M60^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+REFERENCE           ZOMBIE_WEAPON_MP40
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3MP40^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_MP5K
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3MP5^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+REFERENCE           ZOMBIE_WEAPON_P90
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3OLD P90^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_PDW57
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3PDW-57^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+REFERENCE           ZOMBIE_WEAPON_PYTHON
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Cobra^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_QCW05
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3QCW-05^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_RAYGUN
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Ray Gun^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_RIOTSHIELD
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Zombie Shield^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_RNMA
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Remington New Model Army^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_ROTTWEIL72
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Olympia^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_RPD
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3RPD^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+
+REFERENCE           ZOMBIE_WEAPON_SARITCH
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3TOZ Sacritch^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+
+REFERENCE           ZOMBIE_WEAPON_SRM1216
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M1216^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_STICKY_GRENADE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Semtex Grenades^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+REFERENCE           ZOMBIE_WEAPON_SVU
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3SVU-AS^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_TAR21
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3X95L^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_TAZER_BUY
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Galvaknuckles^9 ]\n^8[ ^9Cost: &&1 ]"
+
+
+REFERENCE           ZOMBIE_WEAPON_TYPE95
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Type25^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_USRPG
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3RPG^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_XM25
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3XM-25^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPON_XM8
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3M8A1^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPONAMMOONLY
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for ^3Ammo^9 ]\n^8[ ^9Cost: &&1 ]"
+
+REFERENCE           ZOMBIE_WEAPONCOSTAMMO   
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 Weapon ^3[&&1], ^8Ammo ^3[&&2]^9 ]"
+
+REFERENCE           ZOMBIE_WEAPONCOSTAMMO_UPGRADE
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 Weapon ^3[&&1], ^8Ammo ^3[&&2]^9 ]\n          ^8[ Upgraded Ammo ^9[ 4500 ] ^8]"
+
+REFERENCE           ZOMBIE_WEAPONCOSTONLY
+LANG_ENGLISH        "^9[ ^9[{+activate}]^8 for^9 &&1 ^8[ ^9Cost: &&2 ^8] ^9]"
+
+REFERENCE           MENU_RESUMEGAME_CAPS
+LANG_ENGLISH        "^8Resume fight"
+
+REFERENCE           MPUI_END_GAME_CAPS
+LANG_ENGLISH        "^9End fight"
+
+REFERENCE           MENU_QUIT_CAPS
+LANG_ENGLISH        "^8Quit"
+
+REFERENCE           MENU_LEAVE_GAME_CAPS
+LANG_ENGLISH        "^9End fight"
+
+REFERENCE           MENU_PLAYERLIST_PLAYER_COUNT_PLURAL
+LANG_ENGLISH        "^8 &&1 ^9Survivors^8 (&&2 Max)"
+
+REFERENCE           MENU_PLAYERLIST_PLAYER_COUNT_SINGULAR
+LANG_ENGLISH        "^8 &&1 ^9Survivor^8 (&&2 Max)"
+
+REFERENCE           MENU_PLAYERS_ONLINE
+LANG_ENGLISH        "^9 &&1 Online"
+
+
+REFERENCE           MENU_PLAYERS
+LANG_ENGLISH        "^9Survivors"
+
+REFERENCE           MPUI_ZCLEANSED_CAPS
+LANG_ENGLISH        "Turned"
+
+REFERENCE           EXE_SERVER_DISCONNECTED
+LANG_ENGLISH        "Removed from the globe..."
+
+REFERENCE           EXE_CONNECTING
+LANG_ENGLISH        "Warmer Days Update"
+
+REFERENCE           EXE_CONNECTINGTO
+LANG_ENGLISH        "Warmer Days Update"
+
+REFERENCE           EXE_DISCONNECTED_FROM_SERVER
+LANG_ENGLISH        "Removed from the globe..."
+
+REFERENCE           EXE_AWAITINGCHALLENGE
+LANG_ENGLISH        "Customizing the experience..."
+
+REFERENCE           EXE_AWAITINGCONNECTION
+LANG_ENGLISH        "Gathering survivors together..."
+
+REFERENCE           EXE_AWAITINGGAMESTATE
+LANG_ENGLISH        "Tranzit Reimagined by ^9Ultimateman"
+
+REFERENCE           EXE_AWAITINGHOST
+LANG_ENGLISH        "Tranzit Reimagined by ^9Ultimateman"
+
+REFERENCE           EXE_AWAITINGTEXTURES
+LANG_ENGLISH        "Tranzit Reimagined by ^9Ultimateman"
+
+
+ENDMARKER

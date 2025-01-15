@@ -12,7 +12,7 @@ main()
    // maps\mp\createart\zm_transit_art::main();
 
    // replacefunc( maps\mp\createart\zm_transit_art::main, ::new_zm_transit_art_test );
-    replacefunc( maps\mp\zm_transit_fx::main, ::empty_tester );
+    //replacefunc( maps\mp\zm_transit_fx::main, ::empty_tester );
 }
 
 init()

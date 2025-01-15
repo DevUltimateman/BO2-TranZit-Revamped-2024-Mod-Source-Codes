@@ -172,6 +172,7 @@ spawn_lockdown_enabler( origin )
     trig thread monitor_player_use();
 
     level waittill( "lockdown_enabled" );
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     PlaySoundAtPosition("mus_zombie_splash_screen", level.players[ 0 ].origin );
     //PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Spirit From Hell", "^8That was a stupid choice.", "Survive.", 6, 0.25 );
@@ -240,10 +241,10 @@ monitor_player_use()
                     level.lock_down_enabled = true;
                     if( level.dev_time ) { iprintlnbold( "LOCKDOWN INITIATED" ); }
                     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
-                    level thread _spirit_of_sorrow_sub_text_alt( "You fools!", "Time to pay for your wrong doings..!!", 7, 1 );
+                    level thread _spirit_of_sorrow_sub_text_alt( "You fools!", "Time to pay for your wrong doings..", 7, 1 );
                     level notify( "lockdown_enabled" );
                     level notify( "spawn_blockers_for_lockdown" );
-                   
+                    level.zombie_total = 9999;
                     wait 0.05;
                     PlaySoundAtPosition(level.jsn_snd_lst[ 33 ], loca );
                     wait 1;
@@ -278,14 +279,7 @@ do_zombies_go_crazy()
     level endon( "end_game" );
     saved_round = level.round_number;
     ai = getAIArray( level.zombie_team );
-    
-    for( a = 0; a < ai.size; a++ )
-    {
-        ai[ a ] doDamage( ai[ a ].health + 555, ai[ a ].origin );
 
-    }
-    wait 0.05;
-    level.zombie_total = 9999;
     if( level.dev_time ){ iprintlnbold( "ZOMBIE TOTAL FOR LOCKDOWN = ^4" + level.zombie_total ); }
     //dont make zombies super sprinters here. 
     //have that in the second lockdown later down the quest when players are most likely better equipped
@@ -351,7 +345,7 @@ spawn_lockdown_blockers()
     wait 1;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread _someone_unlocked_something( "^8Let's regroup at ^9Safe House", "^8Some sorta toxic cloud is forming around the map.", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread _someone_unlocked_something( "^8Watch out for the poisonous gas!!!", "^8Get to your ^9Safe House^8 immediately!", 8, 1 );
     level notify( "stop_mus_load_bur" );
@@ -435,4 +429,5 @@ flyby( element )
         element.x += 200;
         wait 0.05;
     }
+    level.subtitles_on_so_have_to_wait = false;
 }

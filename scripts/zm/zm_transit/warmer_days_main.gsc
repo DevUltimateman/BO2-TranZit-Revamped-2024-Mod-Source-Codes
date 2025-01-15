@@ -40,6 +40,14 @@
 #include maps\mp\createart\zm_transit_art;
 #include maps\mp\createfx\zm_transit_fx;
 
+//TODO FIXING
+//ACID GAT TO NOT DO THE GRENADE FX <done>
+//MAKE THE INITIAL FIRE NADE COUNT OF THROWING AT ZOMBIES SMALLER <done>
+//FIX COST OF BULLET UPGRADES AFTER COMPLETING EE <done>
+//FIX CUSTOM WEAPON PICK UP NOT PICKIN UP AMMO BUY <done>
+//FIX CUSTOM HINTSTRINGS FOR SAFE HOUSE SIDE ENTRANCE PICK UP LOCATION AFTER PICKING UP <done>
+//FIX UPGRADED SNIPER BULLETS NOT WORKING WITH MARTYRS EXPLOSIVES <done>
+//FIX GRENADE HUD INDICATOR <done>
 
 init()
 {
@@ -47,10 +55,11 @@ init()
     how_far_can_i_see = 15000; 
 
     //cull distance
+    
     setCullDist( how_far_can_i_see );
 
     //disable annoying monkeys
-    level.is_player_in_screecher_zone = ::screecher_hooker;
+    level.is_player_in_screecher_zone = false;// ::screecher_hooker;
     level.player_out_of_playable_area_monitor = 0;
 
     //foce non client dvars to be applied
@@ -70,6 +79,23 @@ init()
     //level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^6PHD Flopper ^8Reward Unlocked", "^8" + "Players can now take explosive damage", "^8" + "without losing any health health.", 6, 0.25 );
     level thread make_trees_hide_some();
     level thread make_smoke_hide_some();
+
+    //debug why upgraded sniper not getting name set properly
+    //level.players[ 0 ] thread print_weapon_name();
+    //level.players[ 0 ].score += 999999;
+}
+
+print_weapon_name()
+{
+    level endon( "end_game" );
+    self endon( "disconnect" );
+    while( true )
+    {
+        iprintln( self getCurrentWeapon() );
+        gi = self getWeaponsListPrimaries();
+        iprintln( gi[ 1 ] );
+        wait 1;
+    }
 }
 
 player_waiter()
@@ -85,11 +111,9 @@ player_waiter()
 screecher_hooker()
 {
     level endon( "end_game" );
-    while( level.players.size < 4 )
-    {
+    
         return 0;
-        wait 0.05;
-    }
+    
     
 }
 
@@ -124,8 +148,8 @@ dev_visuals()
     self setclientdvar( "r_fog", 0  );
     self setclientdvar( "r_lodbiasrigid", -1000  );
     self setclientdvar( "r_lodbiasskinned", -1000 );
-    self setclientdvar( "cg_fov_default", 90 );
-    self setclientdvar( "cg_fov", 90 );
+    self setclientdvar( "cg_fov_default", 80 );
+    self setclientdvar( "cg_fov", 80 );
     self setclientdvar( "vc_fsm", "1 1 1 1" );
     //self setclientdvar( "",  );
 

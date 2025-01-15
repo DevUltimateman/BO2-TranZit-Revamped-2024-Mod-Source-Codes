@@ -54,9 +54,10 @@ init()
     level thread spawn_smr_buyables();
     level thread spawn_hamr_buyables();
     level thread spawn_rpd_buyables();
+    level thread activate_avogadro_zombies();
     wait 15;
     level thread reward_clip_size_4x(); //at one point players get 4x multiplier clip
-    level thread track_e_trap_ee_kills(); //mini ee that unlocks zombies to come avogadros
+    //level thread track_e_trap_ee_kills(); //mini ee that unlocks zombies to come avogadros
 }
 
 intro_credit_camera()
@@ -158,9 +159,10 @@ track_e_trap_ee_kills()
 activate_avogadro_zombies()
 {
     level endon( "end_game" );
-    level waittill( "can_get_av_zoms" );
+    
     knife_loc = ( 11092.5, 8447.29, -545.993 );
     cant_be_done = false;
+    first = true;
     while( true )
     {
         for( s = 0; s < level.players.size; s++ )
@@ -173,16 +175,28 @@ activate_avogadro_zombies()
                     {
                         cant_be_done = true;
                         level thread reward_mini_quest_avogadro_zombies();
-                        level.players[ s ].score += 1500;
-                        level.players[ s ] playsound( "zmb_cha_ching" );
-                        wait 1;
-                        break;
+                        if( first )
+                        {
+                            iprintlnbold( "^8What have you done?!" );
+                            level.players[ s ].score += 1500;
+                            level.players[ s ] playsound( "zmb_cha_ching" );
+                            first = false;
+                        }
+                        
+                        wait 5;
+                        //break;
+                    }
+                    else if( cant_be_done )
+                    {
+                        level notify( "stop_avogadro_shit" );
+                        cant_be_done = false;
+                        wait 5;
                     }
                     
                 }
             }
         }
-        wait 0.05;
+        wait 0.1;
     }
 }
 zap_zombies( zombie )
@@ -214,6 +228,7 @@ zap_zombies( zombie )
 reward_mini_quest_avogadro_zombies() 
 {
     level endon( "end_game" );
+    level endon( "stop_avogadro_shit" );
     while( true )
     {
         foreach( zom in getAIArray( level.zombie_team ) )
@@ -221,6 +236,8 @@ reward_mini_quest_avogadro_zombies()
             if( zom.model != "c_zom_avagadro_fb" )
             {
                 zom setmodel( "c_zom_avagadro_fb" );
+                //zom detach( zom.headmodel );
+                zom detachall();
             }
             
         }
@@ -1052,7 +1069,7 @@ move_with_me()
     }
 }
 
-do_weapon_buy( weapon, weapon_loc, weapon_angs, str, cost, real_weapon )
+do_weapon_buy( weapon, weapon_loc, weapon_angs, str, cost, real_weapon, upgrade_alias )
 {
     level endon( "end_game" );
     mod = spawn( "script_model", weapon_loc );
@@ -1065,33 +1082,129 @@ do_weapon_buy( weapon, weapon_loc, weapon_angs, str, cost, real_weapon )
     trig setCursorHint( "HINT_NOICON" );
     trig setHintString( str );
     trig TriggerIgnoreTeam();
+    location_takes = [];
 
+    if( real_weapon == "hamr_zm" )
+    {
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm+reflex";
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm+grip";
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm+acog";
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm";
+    }
+
+    if( real_weapon == "rpd_zm" )
+    {
+        location_takes[  location_takes.size ] = "rpd_upgraded_zm";
+    }
+
+    if( real_weapon == "srm1216_zm" )
+    {
+        location_takes[  location_takes.size ] = "srm1216_upgraded_zm+extbarrel";
+        location_takes[  location_takes.size ] = "srm1216_upgraded_zm+reflex";
+    }
+
+    if( real_weapon == "hamr_zm" )
+    {
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm+reflex";
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm+grip";
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm+acog";
+        location_takes[  location_takes.size ] = "hamr_upgraded_zm";
+    }
+
+    if( real_weapon == "barretm82_zm" )
+    {
+        location_takes[  location_takes.size ] = "barretm82_upgraded_zm";
+        location_takes[  location_takes.size ] = "barretm82_upgraded_zm+vzoom";
+    }
+
+    weapons_up_list = [];
+    weapons_up_list_short = [];
+    weapons_up_list[ weapons_up_list.size ] = "hamr_upgraded_zm+reflex";
+    weapons_up_list[ weapons_up_list.size ] = "hamr_upgraded_zm+grip";
+    weapons_up_list[ weapons_up_list.size ] = "hamr_upgraded_zm+acog";
+    weapons_up_list[ weapons_up_list.size ] = "barretm82_upgraded_zm+vzoom";
+    weapons_up_list[ weapons_up_list.size ] = "barretm82_upgraded_zm";
+    weapons_up_list[ weapons_up_list.size ] = "srm1216_upgraded_zm+extbarrel";
+    weapons_up_list[ weapons_up_list.size ] = "srm1216_upgraded_zm+reflex";
+    weapons_up_list[ weapons_up_list.size ] = "rpd_upgraded_zm";
+
+    weapons_up_list_short[ weapons_up_list_short.size ] = "upgraded_zm+reflex";
+    weapons_up_list_short[ weapons_up_list_short.size ] = "upgraded_zm+grip";
+    weapons_up_list_short[ weapons_up_list_short.size ] = "upgraded_zm+acog";
+    weapons_up_list_short[ weapons_up_list_short.size ] = "upgraded_zm+vzoom";
+    weapons_up_list_short[ weapons_up_list_short.size ] = "upgraded_zm+extbarrel";
+    weapons_up_list_short[ weapons_up_list_short.size ] = "upgraded_zm";
     w_cost = cost;
+    f = false;
+    cant_do = true;
     while( true )
     {
         trig waittill( "trigger", buyer );
+        wait 0.05;
+        //this check checks the wallbuy's upgrade alt name
+        
         if( is_player_valid( buyer ) )
         {
-            if( buyer.score >= w_cost )
+
+            get_alt_up = buyer getcurrentweapon();
+            gi = buyer getweaponslistprimaries();
+
+
+            for( s = 0; s < location_takes.size; s++ )
             {
-                if( !buyer hasWeapon( real_weapon ) )
+                if( buyer hasweapon( location_takes[ s ] ) )
                 {
-                    buyer.score -= w_cost;
-                    buyer playsound( "zmb_cha_ching" );
-                    //list = getweaponsli
-                    list = buyer getWeaponsListPrimaries();
-                    if( list.size > 1 )
+                    if( buyer.score >= 5000 )
                     {
-                        buyer takeWeapon( buyer getCurrentWeapon() );
+                        buyer playsound( "zmb_cha_ching" );
+                        buyer.score -= 5000;
+                        buyer givemaxammo( location_takes[ s ] );
+                        wait 1;
+                        continue;
                     }
-                    
-                    wait 0.05;
-                    buyer giveweapon( real_weapon );
-                    buyer givemaxammo( real_weapon );
-                    buyer switchtoweapon( real_weapon );
-                    wait 1;
                 }
-                
+            }
+
+            if( buyer hasweapon( real_weapon ) )
+            {
+                if( buyer.score >= 750 )
+                {
+                    buyer playsound( "zmb_cha_ching" );
+                    buyer.score -= 750;
+                    buyer givemaxammo( real_weapon );
+                    wait 1;
+                    continue;
+                }
+            }
+
+
+
+            else if( !buyer hasweapon( real_weapon )   )
+            {
+                for( u = 0; u < location_takes.size; u++ )
+                {
+                    if( buyer hasweapon( location_takes[ u ] ) )
+                    {
+                        wait 1;
+                        cant_do = false;
+                        continue;
+                    }
+                }
+                if( !cant_do ){ wait 1; continue; }
+                list = buyer getweaponslistprimaries();
+                if( list.size > 1 )
+                {
+                    buyer takeweapon( buyer getcurrentweapon() );
+                    wait 0.05;
+                }
+                if( buyer.score < cost ){ wait 0.05; continue; }
+                buyer playsound( "zmb_cha_ching" );
+                buyer.score -= cost;
+                buyer giveweapon( real_weapon );
+                buyer givemaxammo( real_weapon );
+                buyer switchtoweapon( real_weapon );
+                wait 1;
+                continue;
             }
         }
         wait 1;
@@ -1113,8 +1226,9 @@ spawn_rpd_buyables()
     list[ 1 ] = ( "t6_wpn_lmg_hamr_world" );
     list[ 2 ] = ( "t6_wpn_shotty_srm1216_world" );
     list[ 3 ] = ( "t6_wpn_sniper_m82_world" );
-    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9RPD ^8]\n^8Cost: ^9" + cost;
-    level thread do_weapon_buy( list[ 0 ], locs[ 0 ], angs[ 0 ], strings, cost, "rpd_zm" );
+    upgrade_alias = "rpd_upgraded_zm";
+    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9RPD ^8]\n^8Cost: ^9" + cost + "^8 | ^9Ammo: ^8750 ^9/ ^8Upgraded: ^95000";
+    level thread do_weapon_buy( list[ 0 ], locs[ 0 ], angs[ 0 ], strings, cost, "rpd_zm", upgrade_alias  );
     
 
     //locs[  ] = (  );
@@ -1146,10 +1260,11 @@ spawn_hamr_buyables()
     list[ 1 ] = ( "t6_wpn_lmg_hamr_world" );
     list[ 2 ] = ( "t6_wpn_shotty_srm1216_world" );
     list[ 3 ] = ( "t6_wpn_sniper_m82_world" );
-    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9HAMR LMG ^8]\n^8Cost: ^9" + cost;
+    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9HAMR LMG ^8]\n^8Cost: ^9" + cost + "^8 | ^9Ammo: ^8750 ^9/ ^8Upgraded: ^95000";
+    upgrade_alias = "hamr_upgraded_zm";
     level thread do_weapon_buy( list[ 1 ], locs[ 0 ], angs[ 0 ], strings, cost, "hamr_zm" );
     wait 1;
-    level thread do_weapon_buy( list[ 1 ], locs[ 1 ], angs[ 1 ], strings, cost, "hamr_zm" );
+    level thread do_weapon_buy( list[ 1 ], locs[ 1 ], angs[ 1 ], strings, cost, "hamr_zm", upgrade_alias );
 }
 
 spawn_smr_buyables()
@@ -1172,10 +1287,11 @@ spawn_smr_buyables()
     list[ 1 ] = ( "t6_wpn_lmg_hamr_world" );
     list[ 2 ] = ( "t6_wpn_shotty_srm1216_world" );
     list[ 3 ] = ( "t6_wpn_sniper_m82_world" );
-    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9SRM1216 ^8]\n^8Cost: ^9" + cost;
+    upgrade_alias = "srm1216_upgraded_zm";
+    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9SRM1216 ^8]\n^8Cost: ^9" + cost + "^8 | ^9Ammo: ^8750 ^9/ ^8Upgraded: ^95000";
     level thread do_weapon_buy( list[ 2 ], locs[ 0 ], angs[ 0 ], strings, cost, "srm1216_zm" );
     wait 1;
-    level thread do_weapon_buy( list[ 2 ], locs[ 1 ], angs[ 1 ], strings, cost, "srm1216_zm" );
+    level thread do_weapon_buy( list[ 2 ], locs[ 1 ], angs[ 1 ], strings, cost, "srm1216_zm", upgrade_alias );
 }
 
 spawn_barret_buyables()
@@ -1198,9 +1314,12 @@ spawn_barret_buyables()
     list[ 1 ] = ( "t6_wpn_lmg_hamr_world" );
     list[ 2 ] = ( "t6_wpn_shotty_srm1216_world" );
     list[ 3 ] = ( "t6_wpn_sniper_m82_world" );
-    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9Barretta M82 ^8]\n^8Cost: ^9" + cost;
+    upgrade_alias = "barretm82_upgraded_zm";
+    //"barretm82_upgraded_zm+vzoom"
+    //"barretm82_upgraded_zm"
+    strings = "^8[ ^9[{+activate}] ^8To Purchase ^9Barretta M82 ^8]\n^8Cost: ^9" + cost + "^8 | ^9Ammo: ^8750 ^9/ ^8Upgraded: ^95000";
     level thread do_weapon_buy( list[ 3 ], locs[ 0 ], angs[ 0 ], strings, cost, "barretm82_zm" );
     wait 1;
-    level thread do_weapon_buy( list[ 3 ], locs[ 1 ], angs[ 1 ], strings, cost, "barretm82_zm" );
+    level thread do_weapon_buy( list[ 3 ], locs[ 1 ], angs[ 1 ], strings, cost, "barretm82_zm", upgrade_alias );
 }
 

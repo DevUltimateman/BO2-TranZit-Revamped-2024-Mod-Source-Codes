@@ -107,25 +107,24 @@ explosive_tracer_bullet()
         end = world_dir( front, 9999 );
         
         self waittill( "weapon_fired", weap );
-        //weap = self getCurrentWeapon();
-        if( weap == "jetgun_zm" ){ wait 0.05; continue;}
-        if( weap == "ray_gun_zm" ){ wait 0.05; continue;}
-        if( weap == "ray_gun_upgraded_zm" ){ wait 0.05; continue;}
-        if( weap == "knife_ballistic_zm" ){ wait 0.05; continue;}
-        if( weap == "equip_turbine_zm" ){ wait 0.05; continue;}
-        if( weap == "knife_ballistic_upgraded_zm" ){ wait 0.05; continue;}
-        if( weap == "knife_ballistic_bowie_zm" ){ wait 0.05; continue;}
-        if( weap == "knife_ballistic_bowie_upgraded_zm" ){ wait 0.05; continue;}
-        if( weap == "knife_ballistic_no_melee_upgraded_zm" ){ wait 0.05; continue;}
-        if( weap == "knife_ballistic_no_melee_zm"  ){ wait 0.05; continue;}
-        if( weap == "raygun_mark2_upgraded_zm" ){ wait 0.05; continue;}
-        if( weap == "raygun_mark2_zm" ){ wait 0.05; continue;}
-        else if( weap == "barretm82_zm" || weap == "barretm82_upgraded_zm" || weap == "dsr50_zm" ||weap == "dsr50_upgraded_zm" )
+            //refactor and now taking into consideration the upgraded weapon name as well
+        if( weap == "barretm82_zm"
+         || weap == "barretm82_upgraded_zm"
+          || weap == "dsr50_zm"
+           ||weap == "dsr50_upgraded_zm"
+           || weap == "barretm82_upgraded_zm+vzoom"
+           || weap == "dsr50_upgraded_zm+vzoom"
+           || weap == "dsr50_upgraded_zm+silencer"
+           || weap == "dsr50_upgraded_zm+is" )
+           {
+                magicbullet( "m1911_upgraded_zm", self gettagorigin( "tag_weapon_left" ), bullettrace( self gettagorigin( "tag_weapon_left" ), self gettagorigin( "tag_weapon_left" ) + AnglesToForward( self getplayerangles() ) * 1000000, 0, self)[ "position" ], self );
+                wait 0.05;
+           }
+        else
         {
-            
-            magicbullet( "m1911_upgraded_zm", self gettagorigin( "tag_weapon_left" ), bullettrace( self gettagorigin( "tag_weapon_left" ), self gettagorigin( "tag_weapon_left" ) + AnglesToForward( self getplayerangles() ) * 1000000, 0, self)[ "position" ], self );
+                wait 0.05;  
         }    
-        wait 0.05;                                       
+                                             
     }
     
 }
@@ -207,7 +206,7 @@ explosive_tracer_spawn()
             wait .1;
             if ( player usebuttonpressed() )
             {
-                player.score -= 7500;
+                player.score -= level.bullet_type_upgrade_cost_3;
                 player playsound( "zmb_cha_ching" );
                 player disableWeapons();
                 spas moveto( portal.origin, 0.1, 0, 0 );
@@ -228,12 +227,15 @@ explosive_tracer_spawn()
     }
 }
 
+
 waittill_price_reduce3()
 {
     level endon( "end_game" );
     level waittill( "alter_prices" );
-    new_value = level.bullet_type_upgrade_cost_3;
-    self setHintString( "^8[ ^9[{+activate}] ^8to upgrade you bullet type to ^3Martyr's Explosives ^8]\n^8Cost: ^9" + new_value );
+    wait 1;
+    level.bullet_type_upgrade_cost_3 = 3250;
+    wait 1;
+    self setHintString( "^8[ ^9[{+activate}] ^8to upgrade your bullet type to ^3Martyr's Explosives ^8]\n^8Cost: ^9" + level.bullet_type_upgrade_cost_3 );
 }
 
 drawGunInfo()

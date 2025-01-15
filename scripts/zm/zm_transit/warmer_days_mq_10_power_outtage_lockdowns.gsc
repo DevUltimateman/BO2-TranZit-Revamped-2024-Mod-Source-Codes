@@ -117,16 +117,17 @@ do_dialog_about_tunnel_help()
     foreach( p in level.players ){   p thread daytime_preset();  }
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Hahaa, you've had your fun ha?", "I'm still looking for an ^3Tranceiver^8.", 5, 1 );
-    wait 6;
+    wait 8;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "The ^3Tranceiver ^8has long been gone and yours is broken..", "We might be able to locate the device from another dimension.", 7, 1 );
-    wait 8;
+    wait 9;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Let me spawn a ^9Back In Time Teleporter^8 for you in the tunnels.", "^8It should be there in a second..", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "See if you're able to pick the device up,", "once you have located it.", 7, 1 );
-    wait 3;
+    wait 5;
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
      PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Distant Memories", "^8Now this guy want's me to go back in time..", "..thru some sort of teleporter ring?", 6, 0.25 );
 }
@@ -258,7 +259,7 @@ monitor_if_close_and_delete( which_initial, which_loop )
         //p = level.players;
         for( s = 0; s < level.players.size; s++ )
         {
-            if( distance( level.players[ s ].origin, self.origin ) < 300 )
+            if( distance( level.players[ s ].origin, self.origin ) < 440 )
             {
                 if( level.sc_flying_in_progress )
                 {
@@ -288,7 +289,7 @@ monitor_if_close_and_delete( which_initial, which_loop )
             if( level.dev_time ){ iprintlnbold( "MONITOR TRIGGER: " + self + " is not defined, breaking out of loop" ); }
             break;
         }
-        wait 1;
+        wait 0.25;
     }
 }
 spawn_all_triggers()
@@ -367,6 +368,7 @@ restore_power_on_press( n )
             {
                 if( self.origin == level.power_outtage_trigger_diner )
                 {
+                    level thread scripts\zm\zm_transit\warmer_days_sq_rewards::reward_mini_quest_avogadro_zombies();
                     self setHintString( "^8[ ^2Power Restoring Started... ^8]" );
                     level thread do_power_restoring_lockdown( level.power_outtage_blocker_diner );
                     level thread power_store_visuals();
@@ -385,6 +387,7 @@ restore_power_on_press( n )
                 else if( self.origin == level.power_outtage_trigger_farm )
                 {
                     self setHintString( "^8[ ^2Power Restoring Started... ^8]" );
+                    level thread scripts\zm\zm_transit\warmer_days_sq_rewards::reward_mini_quest_avogadro_zombies();
                     level thread do_power_restoring_lockdown( level.power_outtage_blocker_farm );
                     level thread power_store_visuals();
                     level.sc_flying_in_progress = true;
@@ -402,6 +405,7 @@ restore_power_on_press( n )
                 else if( self.origin == level.power_outtage_trigger_power )
                 {
                     self setHintString( "^8[ ^2Power Restoring Started... ^8]" );
+                    level thread scripts\zm\zm_transit\warmer_days_sq_rewards::reward_mini_quest_avogadro_zombies();
                     level thread do_power_restoring_lockdown( level.power_outtage_blocker_power );
                     level thread power_store_visuals();
                     level.sc_flying_in_progress = true;
@@ -419,6 +423,7 @@ restore_power_on_press( n )
                 else if( self.origin == level.power_outtage_trigger_bank )
                 {
                     self setHintString( "^8[ ^2Power Restoring Started... ^8]" );
+                    level thread scripts\zm\zm_transit\warmer_days_sq_rewards::reward_mini_quest_avogadro_zombies();
                     level thread do_power_restoring_lockdown( level.power_outtage_blocker_bank );
                     level thread power_store_visuals();
                     level.sc_flying_in_progress = true;
@@ -457,7 +462,7 @@ waittill_powers_restored()
     foreach( p in level.players ){   p thread daytime_preset();  }
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Excellent work!", "The power has been restored.", 5, 1 );
-    wait 6;
+    wait 8;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Let's try meeting up again at the ^3Pylon^8.", "^8I'll be waiting for you there!", 7, 1 );
     wait 8;
@@ -510,6 +515,7 @@ do_power_restoring_lockdown( which_spot )
         blocker2 delete();
         level.sc_doing_loop = false;
         level.sc_flying_in_progress = false;
+        level notify( "stop_avogadro_shit" );
     }
     
     else if( which_spot == level.power_outtage_blocker_diner )
@@ -529,6 +535,7 @@ do_power_restoring_lockdown( which_spot )
         blocker0 delete();
         level.sc_doing_loop = false;
         level.sc_flying_in_progress = false;
+        level notify( "stop_avogadro_shit" );
     }
 
     else if( which_spot == level.power_outtage_blocker_power )
@@ -576,6 +583,7 @@ do_power_restoring_lockdown( which_spot )
         blocker3 delete();
         level.sc_doing_loop = false;
         level.sc_flying_in_progress = false;
+        level notify( "stop_avogadro_shit" );
     }
 
 
@@ -604,6 +612,7 @@ do_power_restoring_lockdown( which_spot )
         blocker1 delete();
         level.sc_doing_loop = false;
         level.sc_flying_in_progress = false;
+        level notify( "stop_avogadro_shit" );
     }
 
     
@@ -1129,10 +1138,10 @@ do_meet_at_pylon_text()
     wait 4.5;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "^8Fantastic! You received the ^9Tranceiver!", "^8Let's meet underneath the pylon.", 8, 1 );
-    wait 10;
+    wait 11;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "^8We can call help once we've applied the ^9Tranceiver ^8to the ^9Pylon^8.", "^8Be quick, I'll be waiting for you. No hurries tho haha!", 10, 1 );
-    wait 11;
+    wait 12;
     level thread wait_players_at_pylon();
 
     level thread spawn_all_triggers();
@@ -1281,13 +1290,13 @@ do_power_out_texts()
     wait 3.5;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here( "^8What's happening?", "^8How did it come so dark suddenly?", 8, 1 );
-    wait 9;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here( "^8Power seems to be cut out completely!", "^8We can't try calling help without power..", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here( "^8Let's try restoring the power at different power surge locations.", "^8Once you're close to a location, I will come in and help you collect electricity!", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     do_dialog_here( "^8See you soon.", "^8My ^9friend^8.", 5, 1 );
     wait 6;

@@ -208,9 +208,15 @@ mr_s_for_final_time()
     level endon( "end_game" );
 
     level waittill( "called_s" );
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
      PlaySoundAtPosition( "mus_zombie_round_start", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Reuniting With Mr. Schruder", "^8All well and good now..", "..wonder what he's got planned.", 6, 0.25 );
     wait 1.5;
+    foreach( zom in level.zombie_team )
+    {
+        zom dodamage( zom.health + 500, zom.origin );
+    }
+    setdvar( "g_ai", 0 );
     here = ( 7629.86, -460.482, -172.256 );
     down_here = ( 7629.86, -460.482, -342.353 );
     mr_s = spawn( "script_model", down_here );
@@ -245,45 +251,46 @@ mr_s_for_final_time()
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     level thread do_dialog_here( "At last my friend!", "It seems that all is good and well now, huh?", 6, 1 );
-    wait 7;
+    wait 8;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "You've been such a help.", "I don't know how I could ever repay you for your work..", 8, 1 );
-    wait 10;
+    wait 12;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Hmm.. I feel like you might wanna call help for yourself now..", "Understandable, you have your own things to pursue elsewhere..", 11, 1 );
-    wait 13;
+    wait 15;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Would you mind at least enjoy yourself first a bit?", "I've got some things prepared for you...", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "Let me start off by making your soda drink effects permament!", "You'll keep the effects, even when going down!", 6, 1 );
     level thread give_all_perks_and_make_permament();
-    wait 7;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "What about this next thing?..", "Lemme me spawn an ^2Acid Gat ^8 at ^3Nacht ^8for you!", 7, 1 );
     level thread spawn_all_pickable_acidgats();
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "You can go pick it up whenever you feel like so.", "I heard it kills zombies!", 7, 1 );
-    wait 8;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "I've also reduced the cost of your ^3Bullet Upgrades^8 at ^9Safe House^8.", "Check the prices and see if they're worthy of your pennies now, ha!", 10, 1 );
     level thread reduce_bullettracer_costs();
-    wait 11;
+    wait 13;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "I also suggest you to do any remaining quests or chores, if you have any left.", "Anyways my friend..", 7, 1 );
     wait 8;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "If you feel like calling for help and getting yourself outta here, feel free to do so too.", "But I hope that you enjoy your treats first!", 7, 1 );
-    wait 9;
+    wait 11;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread do_dialog_here( "I'll be waiting for your call, my friend.", "Till then, have some fun at first!", 7, 1 );
-    wait 8;
+    wait 10;
     level.should_stop = true;
     playfx( level.myFx[ 87 ], mr_s.origin );
     mr_s movez( 10000, 1, 0, 0 );
     mr_s waittill( "movedone" );
     mr_s delete();
+    setdvar( "g_ai", 1 );
     degree_tagger delete();
     level notify( "stop_mus_load_bur" );
     level notify( "can_call_help" );
@@ -474,7 +481,7 @@ set_remaining_perks()
 		wait 1;//"specialty_marathon_zombies"
 	}
    // "specialty_longersprint_upgrade"
-	if ( !self hasperk( "specialty_armorvest_upgrade") )
+	if ( !self hasperk( "specialty_armorvest") )
 	{
 		self playlocalsound( "cac_cmn_beep" );
 		self give_perk( "specialty_armorvest_upgrade", 0 );
@@ -483,7 +490,7 @@ set_remaining_perks()
 		wait 1;
 	}
 
-	if ( !self hasperk( "specialty_rof_upgrade" ) )
+	if ( !self hasperk( "specialty_rof" ) )
 	{
 		self playlocalsound( "cac_cmn_beep" );
 		self give_perk( "specialty_rof_upgrade", 0 );
@@ -501,7 +508,7 @@ set_remaining_perks()
 		wait 1;
     }
 
-    if( !self hasperk( "specialty_longersprint_upgrade" ) )
+    if( !self hasperk( "specialty_longersprint" ) )
     {
         self playlocalsound( "cac_cmn_beep" );
 		self give_perk( "specialty_longersprint_upgrade", 0 );
@@ -691,6 +698,8 @@ dont_return_till_this_dont_have_it( me, what_trig )
             break;
         }
     }
+    what_trig.is_activateable = true;
+
 }
 reduce_bullettracer_costs()
 {

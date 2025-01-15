@@ -246,6 +246,7 @@ wait_to_print_unlock_rift( wait_time )
 {
     level endon( "end_game" );
     wait wait_time;
+    PlaySoundAtPosition(level.jsn_snd_lst[ 30 ], level.players[ 0 ].origin );
     PlaySoundAtPosition( "mus_zombie_round_over", level.players[ 0 ].origin );
     level thread scripts\zm\zm_transit\warmer_days_sq_rewards::print_text_middle( "^9Rift Portals ^8Unlocked", "^8Survivors can now teleport around ^9Ravenholm^8 via rift rides.", "^8Each lamp has a different landing destination assigned to it.", 6, 0.25 );
 }
@@ -279,10 +280,10 @@ level_tell_about_rifts()
     level endon( "end_game" );
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Did you see that???", "^8The rift tried to grab you!", 6, 0.25 );
-    wait 7;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "It will certainly try it again in a bit..", "^8Think you should get ready!", 5, 0.25 );
-    wait 7;
+    wait 10;
     level notify( "do_it" );
     level notify( "stop_mus_load_bur" );
 }
@@ -386,6 +387,7 @@ do_stuff_for_rift_grab()
         self.ignoreme = true;
         wait 0.25;
     }
+    wait 2.5;
     self disableInvulnerability(); 
     self.ignoreme = false;
         
@@ -393,6 +395,7 @@ do_stuff_for_rift_grab()
 
 level_bring_back_normal_visuals_and_stuff()
 {
+    level notify( "stop_avogadro_shit" );
     level.zombie_total = undefined;
     for( i = 0; i < level.players.size; i++ )
     {
@@ -1484,6 +1487,8 @@ monitor_everything( trigger_to_monitor, fixable_spot_integer ) //in use now
         wait 0.05;
     }
 }
+//MAKE SURE THAT THIS HAS THE LAMPS NOT ENABLED TILL S_NAVCARD_TALKS NOTIFY
+//CHECK TOMORROW THAT ALL IS WELL AND PUSH THE UPDATE OUT.
 rise_bulb_underneath( value_at, fixable_integer ) //in use now
 {
     level endon( "end_game" );
@@ -1492,9 +1497,12 @@ rise_bulb_underneath( value_at, fixable_integer ) //in use now
 
     //level notify( "start_thread_" + );
     //do the "initial rise"
+    
     self moveto( target_light[ value_at ].origin, 2, 0.4, 0 );
     self waittill( "movedone" );
-    playFXOnTag( level.myfx[ 16 ], self, "tag_origin" );
+    playFXOnTag( level.myFx[ 19 ], self, "tag_origin" );
+    wait 0.1;
+    playfxontag( level.myFx[ 21 ], self, "tag_origin" );
     switch( fixable_integer ) //offsets based on location.
     {
         case 0: //forest to town
@@ -1531,7 +1539,8 @@ rise_bulb_underneath( value_at, fixable_integer ) //in use now
     //playLoopedFX( level.myfx[ 96 ], 1.2, self.origin );
     
     playfx( level._effect[ "fx_zmb_tranzit_light_safety_ric" ], self.origin, 0, -90 ); // good
-
+    wait 0.05;
+    playfx( level.myFx[ 95 ], self.origin );
     //playfx( level. _effect[ "fx_zmb_tranzit_light_safety_max" ], self.origin, 0, -90 );  //good but doesnt have green light
    //playfx( level._effect[ "fx_zmb_tranzit_light_safety" ], self.origin, -50, -90 ); //boring basic light, this might need to be deleted from gsc and csc to not load in upon power turn on
     //playfx( level._effect[ "fx_zmb_tranzit_light_safety_off" ], self.origin, 0, -90 ); //just a basic light usually not on. this is before u turn power on
@@ -1617,10 +1626,10 @@ lamps_fixed_schruder_speaks()
     
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Ahh.. Good job!", "^9Rift Lamps^8 are powered now!", 5, 0.25 );
-    wait 7;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Check if ^9Stalinburg's Power Station^8 is receiving any signals from the lamps.", "^8The computer should be located somewhere in the ^9Control Room^8.", 7, 1 );
-    wait 9;
+    wait 11;
     //level notify( "spawn_rift_computer" );
     level thread spawn_rift_computer();
     wait 1;
@@ -1690,10 +1699,10 @@ computer_accessed_by_player( playa, a_comp )
     
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Excellent stuff!", "^9" + playa + " ^8was able to restore signal recception from the computer.", 6, .25 );
-    wait 7;
+    wait 10;
     foreach( g in level.players ) { for( i = 0; i < 4; i++ ) { g playSound( level.jsn_snd_lst[ 20 ] );} }
     level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Something's wrong with the computer..", "^8Access the control panel and restart the computer, quick!", 6, 1  );
-    wait 7;
+    wait 10;
     level thread wait_for_access_panel_interact( a_comp_origin );
 
 
@@ -1771,6 +1780,7 @@ wait_for_access_panel_interact( a_comp_origin )
             }
             wait 0.05;
             level.zombie_total = 9999;
+            level thread scripts\zm\zm_transit\warmer_days_sq_rewards::reward_mini_quest_avogadro_zombies();
             level thread do_malfunction_visuals();
             PlaySoundAtPosition( level.jsn_snd_lst[ 3 ], trig_panel.origin );
             wait 1;
@@ -1859,6 +1869,11 @@ spawn_initial_rift_portal_on_core()
         wait randomFloatRange( 0.1, 1.2 );
     }
     wait 5.7;
+    foreach( zom in level.zombie_team )
+    {
+        zom dodamage( zom.health + 50, zom.origin );
+    }
+    level notify( "stop_avogadro_shit" );
     level thread level_bring_back_normal_visuals_and_stuff();
 
 
@@ -2303,4 +2318,5 @@ flyby( element )
         element.x += 100;
         wait 0.05;
     }
+    level.subtitles_on_so_have_to_wait = false;
 }

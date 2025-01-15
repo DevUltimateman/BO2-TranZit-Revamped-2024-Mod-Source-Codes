@@ -39,6 +39,7 @@
 
 init()
 {
+    //((level thread delete_after_initial();
     //level.dev_time = true;
      //can we do a new hover?
     level.spirit_hovers = false;
@@ -70,6 +71,59 @@ init()
     
 }
 
+//{
+   // flag_wait( "initial_blackscreen_passed" );
+    //build_shield_trigger = getent( "9ACCC1A5", "guid" ); //&&"buildable_riotshield"
+    //build_etrap_trigger = getent( "8D113EEA", "guid" );
+
+
+    //build_shield_models = getentarray(/)
+    //old_shield_trigger_origin = build_shield_trigger.origin;
+   // new_shield_trigger_origin = build_etrap_trigger.origin;
+
+
+    //old_etrap_trigger_origin = build_etrap_trigger.origin;
+    //new_etrap_trigger_origin = build_shield_trigger.origin;
+
+
+   // build_shield_trigger.origin = build_shield_trigger.origin + ( 10000, 0, 0 );
+    //build_etrap_trigger.origin = new_etrap_trigger_origin;
+
+   // iprintln( "ALL SET" );
+    
+   // etrap = getEnt( "buildable_trap", "targetname" );
+   // if( etrap.model == "p6_anim_zm_buildable_etrap" &&
+   //      etrap.origin == (  11332.5, 8171, -444.5 )  )
+   //     {
+   //         //we can also show the model while its hidden. the etrap is always on top of the table, its just not shown till build flag is set.
+   //         etrap show();
+   //         iprintln( "Made the etrap visible" );
+    //    }
+
+   // etrap_trigger = getent( "trigger_use", "classname" );
+    //I believe triggers have "invisible cell" signed as the model, lets see if we can make it visible lol
+   // if( etrap_trigger.guid == "8D113EEA" )
+   // {
+   //     etrap_trigger show();
+   //     iprintln( "^2We also made the trigger visible to an eye" );
+   // }
+    //&&mod = getent( "script_model", "classname" )
+    //if( mod.model == )
+
+    //lets make bus depot trucks huuuuge
+  //  cabs = getentarray( "script_struct", "classname" );
+  //  foreach( cab in cabs )
+  /*
+    {
+        if( cab.model == "veh_t6_civ_microbus_dead" )
+        {
+            cab.modelscale = 2.5;
+            iprintln( "Just scaled " + cab + " to ^3" + cab.modelscale );
+        }
+    }
+    */
+
+
 //dbg press ads to shoot orbs above nach fx
     //level thread debug_nacht_shooter();
         //level.players[ 0 ] setOrigin( debug_tower_spawn() );
@@ -77,7 +131,7 @@ waitflag()
 {
     level endon( "end_game" );
     flag_wait( "initial_blackscreen_passed" );
-    
+
     //step 1
     level waittill( "move_into_spirit_of_sorrow" );
     level.rock_summoning_step_active = false;
@@ -942,6 +996,7 @@ flyby( element )
         element.x += 200;
         wait 0.05;
     }
+    level.subtitles_on_so_have_to_wait = false;
 }
 
 

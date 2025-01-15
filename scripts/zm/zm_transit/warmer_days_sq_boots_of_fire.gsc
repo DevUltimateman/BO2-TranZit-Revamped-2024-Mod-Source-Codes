@@ -99,7 +99,9 @@ main()
 
 init()
 {
-
+    //boot pick up subs, make complete new global variables for them
+    level.bubtitle_lower = undefined;
+    level.bubtitle_upper = undefined;
     //re build function to support lava shoes with player_lava_damage(trig) func check
     replacefunc( ::player_lava_damage, ::player_lava_damage_think_if_fireboots );
     //level thread define_global_bootprint_chats();
@@ -108,6 +110,7 @@ init()
     level.summoning_kills_combined_total = 45; //check for if true
     level.summoninglevel_active = false; //defaults to false so that all summoning locations can be accessed before initiating
 
+    level.side_texts_active = false; //fix for global subs when picking up something while text is already playing from main quest
 
     level.boots_are_being_picked_up = false; //initial state to get thru first define check in boot pick up step 1
 
@@ -435,16 +438,135 @@ f_boots1() //fireboot quest step1. Find 8 different fireboots around the map ( j
     wait 8;
     /* TEXT | LOWER TEXT | DURATION | FADEOVERTIME */
     //activate this back when the crashing issue is figured out.
-    level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "^8You've located all the ^9fireboot^8 pieces, conqratulations!", "^8Quick, catch and summon them before they run away!", 8, 0.25 );
+    if( isdefined( level.side_texts_active ) && level.side_texts_active )
+    {
+        while( level.side_texts_active )
+        {
+            wait 0.25;
+        }
+    }
+    level thread boot_says( "^9Dr. Schruder^8: " + "^8You've located all the ^9fireboot^8 pieces, conqratulations!", "^8Quick, catch and summon them before they run away!", 8, 0.25 );
     wait 8;
     level notify( "fireboots_step1_completed" );
 }
 
+
+
+define_boot_subtitles()
+{
+    //if we already have other text playing on the screen..
+    if( isdefined( level.subtitles_on_so_have_to_wait ) && level.subtitles_on_so_have_to_wait )
+    {
+        t_y = -86;
+        l_y = -64;
+    }
+    //otherwise set the subs to their "og" location on screen
+    else if( isdefined( level.subtitles_on_so_have_to_wait  ) && !level.subtitles_on_so_have_to_wait )
+    {
+        t_y = -42;
+        l_y = -24;
+    }
+    level.bubtitle_upper = NewHudElem();
+	level.bubtitle_upper.x = 0;
+	level.bubtitle_upper.y = t_y;
+	level.bubtitle_upper SetText( "" );
+	level.bubtitle_upper.fontScale = 1.32;
+	level.bubtitle_upper.alignX = "center";
+	level.bubtitle_upper.alignY = "middle";
+	level.bubtitle_upper.horzAlign = "center";
+	level.bubtitle_upper.vertAlign = "bottom";
+	level.bubtitle_upper.sort = 1;
+    
+    level.bubtitle_lower = NewHudelem();
+    level.bubtitle_lower.x = 0;
+    level.bubtitle_lower.y = l_y;
+    level.bubtitle_lower SetText( "" );
+    level.bubtitle_lower.fontScale = 1.22;
+    level.bubtitle_lower.alignX = "center";
+    level.bubtitle_lower.alignY = "middle";
+    level.bubtitle_lower.horzAlign = "center";
+    level.bubtitle_lower.vertAlign = "bottom";
+    level.bubtitle_lower.sort = 1;
+
+}
+
+
+
+boot_says( sub_up, sub_low, duration, fadeTimer )
+{
+    //don't start drawing new hud if one already exists 
+    if(  isdefined( level.subtitles_on_so_have_to_wait ) && level.subtitles_on_so_have_to_wait )
+    {
+        while(  level.subtitles_on_so_have_to_wait ) { wait 0.25; }
+    }
+
+    wait 1;
+    define_boot_subtitles();
+    level.bubtitle_upper settext( sub_up );
+    if( isdefined( sub_low ) )
+    {
+        level.bubtitle_lower settext( sub_low );
+    }
+    
+    level.bubtitle_upper.x = 0;
+    level.bubtitle_lower.x = 0;
+    level.bubtitle_upper.alpha = 0;
+    level.bubtitle_upper fadeovertime( fadeTimer );
+    level.bubtitle_upper.alpha = 1;
+	if ( IsDefined( sub_low ) )
+	{
+        level.bubtitle_lower.alpha = 0;
+        level.bubtitle_lower fadeovertime( fadeTimer );
+        level.bubtitle_lower.alpha = 1;
+	}
+
+	wait ( duration );
+    
+	level thread flyby_bubtitles( level.bubtitle_upper );
+    level.bubtitle_upper fadeovertime( fadeTimer );
+    level.bubtitle_upper.alpha = 0;
+
+	if ( IsDefined( sub_low ) )
+	{
+		level thread flyby_bubtitles( level.bubtitle_lower );
+        level.bubtitle_lower fadeovertime( fadeTimer );
+        level.bubtitle_lower.alpha = 0;
+	}
+
+    wait 1.5;
+    level.bubtitle_upper destroy();
+    if( isdefined( level.bubtitle_lower ) ) 
+    {
+        level.bubtitle_lower destroy();
+    }
+}
+
+//this a gay ass hud flyer, still choppy af
+flyby_bubtitles( element )
+{
+    level endon( "end_game" );
+    x = 0;
+    on_right = 640;
+
+    while( element.x < on_right )
+    {
+        element.x += 200;
+        wait 0.05;
+    }
+}
+
+
 f_boots3()
 {
     level endon( "end_game" );
-
-    level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + "Excellent! ^8You've summoned each ^9Fire Boot^8!", "^8They're now yours to keep. You can pick them up from ^9Safe House.", 8, 0.25 );
+    if( isdefined( level.side_texts_active ) && level.side_texts_active )
+    {
+        while( level.side_texts_active )
+        {
+            wait 0.25;
+        }
+    }
+    level thread boot_says( "^9Dr. Schruder^8: " + "Excellent! ^8You've summoned each ^9Fire Boot^8!", "^8They're now yours to keep. You can pick them up from ^9Safe House.", 8, 0.25 );
     //text up
     text_u = [];
     text_u[ 0 ] = "^8Excellent stuff!";
@@ -528,7 +650,7 @@ f_boots3()
                 
                 /* TEXT | LOWER TEXT | DURATION | FADEOVERTIME */
                 //this commented out till we can fix the text freeze issue that crashes the game after ~1 minute of calling it
-                level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + text_d, text_upper, 8, 0.25 );
+                level thread boot_says( "^9Dr. Schruder^8: " + text_d, text_upper, 8, 0.25 );
                 //wait_network_frame();
                 text_d = undefined;
             }
@@ -627,7 +749,7 @@ leg_trigger_logic( model_origin )
                 guy playsoundtoplayer( "zmb_vault_bank_deposit", guy );
                 lower_text = "^9[ ^8Fireboots found: ^8" + true_indicator + "^9 / ^8" + ( level.fireboot_locations.size + " ^9]" );//- 1  ); 
                 wait 0.1;
-                level thread scripts\zm\zm_transit\warmer_days_mq_01_02_meet_mr_s::machine_says( "^9Dr. Schruder^8: " + _returnFireBootStepText(), lower_text, 8, 0.25 );
+                level thread boot_says( "^9Dr. Schruder^8: " + _returnFireBootStepText(), lower_text, 8, 0.25 );
                 wait 0.05;
                 level.boots_found++;
                 level thread picking_up_boots_cooldown_others_timer( cooldownTimer );
@@ -826,18 +948,6 @@ fliebies( element )
 
 
 
-flyby( element )
-{
-    level endon( "end_game" );
-    x = 0;
-    on_right = 640;
-
-    while( element.x < on_right )
-    {
-        element.x += 200;
-        wait 0.05;
-    }
-}
 
 summoning_in_progress( model, bounce_upwards )
 {

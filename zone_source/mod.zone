@@ -37,8 +37,11 @@ script,scripts/zm/zm_blundersplat.gsc
 script,scripts/zm/zm_transit/zm_transitss.csc
 script,scripts/zm/zm_transit/zm_transit.gsc
 script,scripts/zm/zm_transit/zm_transit_gump.csc
+
 script,clientscripts/mp/zombies/_zm_weap_blundersplat.csc
 script,maps/mp/zombies/_zm_weap_blundersplat.gsc
+
+
 
 script,aitype/zm_transit_basic_01.gsc
 script,aitype/zm_transit_basic_05.gsc
