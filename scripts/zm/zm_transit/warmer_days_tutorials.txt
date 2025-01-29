@@ -1,0 +1,75 @@
+
+--this file contains tutorials for different quests in warmer days tranzit reimagined--
+-- G = Level specific
+-- P = player specific 
+
+
+** Sidequests **
+
+-- Boots of Fire -- G 
+1. Collect all 7 boot pieces around map.
+2. Do boot summoning in 3 different locations around the map. Summonings require souls.
+3. Collect and wear the fire boots from specified location.
+
+
+-- Nades of Fire -- P 
+1. Throw a grenade at 5 different locations around the map.
+2. Capture 5 different zombie souls by using killing them with a grenade.
+3. You'll get rewarded Firegrenades automatically.
+
+
+-- Thruster Pack -- P
+1. Player must have completed boots of fire side quest
+2. Player must get x amount of kills while in air.
+3. Player must dolphin dive through different "hola hoops" around the map.
+4. Player can pick the thruster pack from Safehouse.
+
+** Safehouse Quests **
+
+-- Fire Trap -- G
+1. Collect spoiled gasoline from diner's gas pump.
+2. Place the spoiled gasoline on the workbench thats located upstairs in Safehouse.
+3. Collect fire crackers. Can be found from lava crack next to farm house.
+4. Place the crackers on the workbench thats located upstairs in Safehouse.
+5. Upstair's window with flickering lights is now in flames. This trap kills zombies that climb through the window.
+
+-- Side Entrance Blocker -- G
+1. Find a barricade piece from one of the 7 sparking "containers" around the map.
+2. Place the barricade on the workbench that's located in the middle of downstairs in Safehouse.
+3. The huge side entrance is now blocked with a barricade that has infinite health. Player can jump over the barricade.
+
+-- Main Entrance Blocker -- G
+1. Find 2 different fence pieces that are covered in a tarp piece somewhere around the map.
+2. Once both fences are found, they can then be applied to the workbench that's located downstairs in the Safehouse.
+3. Main entrance to the barn is now blocked with 2 doors that both have airlocking mechanism.
+   Doors will open if player is close to them and vice versa.
+   These doors have a set health value.
+   Zombies that are close to the door do damage the door by a set value.
+   Once doors' healths have surged to below zero they will blast wide open.
+   Players can now find rebuildable fence pieces around the map and "fix" the door system to function properly again.
+
+
+** Main Quest **
+1. Turn on the power.
+2. Meet Mr.Schruder. Knife the wooden building's door at bus depot and talk with Mr. S.
+3. Build navcard transmitter underneath the pylon.
+4. Insert navcard to the transmitter.
+5. Build turbine if not built already.
+6. Fix each Rift Portal lamp ( denizen lamp ) by placing a turbine underneath it. Blue light will rise from the ground if it has taken enough power.
+7. Turn on Main frame's computer at power station.
+8. Fuck, turn it off from the Control Panel.
+9. Survive in Power Station while power surge is taking place.
+10. Get sucked into rift ( youll ride your first rift ride ).
+11. Build Jetgun if not already built.
+12. 3 Big rocks at town center lava, shoot them with jetgun.
+13. Rocks are at different locations around the map now, kill zombies near them till they rise up and fly underneath the pylon.
+14. Meet Mr. S. underneath the pylon ( first physical appeareance )
+15. Spirit of Sorrow makes Mr. S. disappear, follow Spirit Of Sorrow through the cornfields to nacht.
+16. Spirit of Sorrow has spawned lanter in nacht, all players must interact with it.
+17. Lockdown step inside of the nacht.
+18. Toxic clouds spawn, race to the farm's Safehouse through a dent mist while avoiding toxic clouds.
+19. Locate the suitcase from bus depot.
+20. Do sharp shooter step with the suitcase and each perk machine. This requires you to follow the bottle and damage it everytime it stops moving and starts elevating.
+21. Go to labs and "build" the immunity drink.
+22. Drink the immunity drink.
+23. fuck whats next
