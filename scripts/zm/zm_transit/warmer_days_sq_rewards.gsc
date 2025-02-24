@@ -776,11 +776,13 @@ player_reward_marathon()
 
 print_text_middle( textbig, textsmall, textsmall_lower, duration, fadefloat )
 {
+	level endon( "end_game" );
     if( duration > 6 )
     {
         duration = 5;
     }
-    level endon( "end_game" );
+    
+	level.mid_print_text_big destroy_hud();
     if( level.hudtext.alpha != 0 )
     {
         wait 0.05;
